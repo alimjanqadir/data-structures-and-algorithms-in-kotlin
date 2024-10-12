@@ -13,19 +13,16 @@ fun isIsomorphicBruteForce(s: String, t: String): Boolean {
     val uniqueCharsS = s.toSet()
 
     // Generate all possible permutations of unique characters in t
-    val permutations = t.toSet().permutations()
+    val uniqueCharsT = t.toSet()
 
-    // Iterate through each possible mapping permutation
-    for (mapping in permutations) {
-        // Create a map pairing each unique character in s to a unique character in t
-        val map = uniqueCharsS.zip(mapping).toMap()
+    // Create a map pairing each unique character in s to a unique character in t
+    val map = uniqueCharsS.zip(uniqueCharsT).toMap()
 
-        // Transform string s based on the current mapping
-        val transformed = s.map { map[it] }.joinToString("")
+    // Transform string s based on the current mapping
+    val transformed = s.map { map[it] }.joinToString("")
 
-        // If the transformed string matches t, the strings are isomorphic
-        if (transformed == t) return true
-    }
+    // If the transformed string matches t, the strings are isomorphic
+    if (transformed == t) return true
 
     // If no valid mapping found, the strings are not isomorphic
     return false
@@ -99,58 +96,54 @@ fun isIsomorphicOptimized(s: String, t: String): Boolean {
     return true
 }
 
+fun isIsomorphic(s: String, t: String): Boolean {
+    if (s.length != t.length) return false
+    // Arrays to store the last seen positions of characters
+    val sLastSeen = IntArray(256) { -1 }
+    val tLastSeen = IntArray(256) { -1 }
+    for (i in s.indices) {
+        // Get ASCII values of characters
+        val sChar = s[i].code
+        val tChar = t[i].code
+        // If the last seen positions don't match, strings are not isomorphic
+        if (sLastSeen[sChar] != tLastSeen[tChar]) {
+            return false
+        }
+        // Update last seen positions
+        sLastSeen[sChar] = i
+        tLastSeen[tChar] = i
+    }
+
+    return true
+}
+
 /**
  * Functional composition approach to determine if two strings are isomorphic.
  * Utilizes recursion and immutable maps to maintain character mappings.
  */
-fun isIsomorphicFunctional(s: String, t: String): Boolean {
-    /**
-     * Recursive helper function to traverse the strings and validate mappings.
-     *
-     * @param index Current index in the strings being compared.
-     * @param mapSToT Current mapping from characters in s to characters in t.
-     * @param mapTToS Current mapping from characters in t to characters in s.
-     * @return Boolean indicating if the strings are isomorphic up to the current index.
-     */
-    fun helper(
-        index: Int,
-        mapSToT: Map<Char, Char>,
-        mapTToS: Map<Char, Char>
-    ): Boolean {
-        // Base case: If we've reached the end of the strings, return true
-        if (index == s.length) return true
+fun isIsomorphicFunctional(s: String, t: String): Boolean =
+    s.zip(t).toSet().size == s.toSet().size && s.toSet().size == t.toSet().size
 
-        val charS = s[index] // Current character from string s
-        val charT = t[index] // Current character from string t
 
-        // Retrieve the mapped characters, if any
-        val mappedCharT = mapSToT[charS]
-        val mappedCharS = mapTToS[charT]
-
-        return when {
-            // If there is no existing mapping for both characters, establish new mappings
-            mappedCharT == null && mappedCharS == null -> {
-                // Recursively call helper with updated mappings
-                helper(
-                    index + 1,
-                    mapSToT + (charS to charT),
-                    mapTToS + (charT to charS)
-                )
-            }
-            // If existing mappings are consistent with current characters, continue recursion
-            mappedCharT == charT && mappedCharS == charS -> {
-                helper(index + 1, mapSToT, mapTToS)
-            }
-            // If mappings are inconsistent, the strings are not isomorphic
-            else -> false
+fun isIsomorphicFast(s: String, t: String): Boolean {
+    if (s.length != t.length) return false
+    // Arrays to store the last seen positions of characters
+    val sLastSeen = IntArray(256) { -1 }
+    val tLastSeen = IntArray(256) { -1 }
+    for (i in s.indices) {
+        // Get ASCII values of characters
+        val sChar = s[i].code
+        val tChar = t[i].code
+        // If the last seen positions don't match, strings are not isomorphic
+        if (sLastSeen[sChar] != tLastSeen[tChar]) {
+            return false
         }
+        // Update last seen positions
+        sLastSeen[sChar] = i
+        tLastSeen[tChar] = i
     }
 
-    // If the strings have different lengths, they cannot be isomorphic
-    if (s.length != t.length) return false
-
-    // Initiate recursion with initial index and empty mappings
-    return helper(0, emptyMap(), emptyMap())
+    return true
 }
 
 /**
@@ -172,7 +165,7 @@ fun main() {
     // When & Then: Iterate through each test case and assert the expected outcomes
     for ((s, t, expected) in testCases) {
         // Assert the Optimized Solution
-        assert(isIsomorphicOptimized(s, t) == expected) {
+        assert(isIsomorphicBruteForce(s, t) == expected) {
             "Optimized: Failed for input s='$s', t='$t'. Expected $expected."
         }
 
