@@ -7,7 +7,7 @@ fun isAnagramBruteForce(s: String, t: String): Boolean {
     return s.toCharArray().sorted() == t.toCharArray().sorted()
 }
 
-fun isAnagram(s: String, t: String): Boolean {
+private fun isAnagram(s: String, t: String): Boolean {
     // If lengths are different, they can't be anagrams
     if (s.length != t.length) return false
     // Create an array to store character counts (26 for lowercase English letters)
