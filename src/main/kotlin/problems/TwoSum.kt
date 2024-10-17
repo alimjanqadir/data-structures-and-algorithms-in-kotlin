@@ -78,6 +78,15 @@ fun twoSumFunctional(numbers: IntArray, target: Int): IntArray {
     return search(0, numbers.size - 1)
 }
 
+fun twoSumHashMap(nums: IntArray, target: Int): IntArray {
+    val complementMap = mutableMapOf<Int, Int>()
+    nums.forEachIndexed { index, num ->
+        complementMap[target - num]?.let { return intArrayOf(it, index) }
+        complementMap[num] = index
+    }
+    throw IllegalArgumentException("No two sum solution")
+}
+
 fun main() {
     // Brute Force Tests
     assert(twoSumBruteForce(intArrayOf(2, 7, 11, 15), 9).contentEquals(intArrayOf(1, 2))) { "Test case 1 failed" }
@@ -93,6 +102,11 @@ fun main() {
     assert(twoSumFunctional(intArrayOf(2, 7, 11, 15), 9).contentEquals(intArrayOf(1, 2))) { "Test case 1 failed" }
     assert(twoSumFunctional(intArrayOf(2, 3, 4), 6).contentEquals(intArrayOf(1, 3))) { "Test case 2 failed" }
     assert(twoSumFunctional(intArrayOf(-1, 0), -1).contentEquals(intArrayOf(1, 2))) { "Test case 3 failed" }
+
+    // Hash map solution Tests
+    assert(twoSumHashMap(intArrayOf(2, 7, 11, 15), 9).contentEquals(intArrayOf(1, 2))) { "Test case 1 failed" }
+    assert(twoSumHashMap(intArrayOf(2, 3, 4), 6).contentEquals(intArrayOf(1, 3))) { "Test case 2 failed" }
+    assert(twoSumHashMap(intArrayOf(-1, 0), -1).contentEquals(intArrayOf(1, 2))) { "Test case 3 failed" }
 
     println("All test cases passed!")
 }
