@@ -1,10 +1,5 @@
 package problems
 
-private class ListNode(
-    var value: Int = 0,
-    var next: ListNode? = null
-)
-
 private fun hasCycleWithHashSet(head: ListNode?): Boolean {
     // Handle empty list
     if (head == null) return false
