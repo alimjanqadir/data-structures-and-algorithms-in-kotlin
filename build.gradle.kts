@@ -1,5 +1,6 @@
 plugins {
     id("org.jetbrains.kotlin.jvm") version "2.1.0-Beta1"
+    id("io.gitlab.arturbosch.detekt") version "1.23.0" // Use the latest version
 }
 
 group = "org.example"
@@ -11,8 +12,14 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
+    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.23.0")
 }
 
 tasks.test {
     useJUnitPlatform()
+}
+
+detekt {
+    config.from("$projectDir/detekt.yml")
+    autoCorrect = true
 }
