@@ -28,6 +28,3 @@ fun main(args: Array<String>) {
     }
     println()
 }
-
-
-class Node(val data: Int, var next: Node?)
