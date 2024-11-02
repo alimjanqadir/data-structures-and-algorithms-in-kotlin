@@ -5,5 +5,5 @@ package problems
  * Represents a single digit in the number.
  */
 class ListNode(var `val`: Int) {
-    var next: ListNode? = null
+  var next: ListNode? = null
 }
