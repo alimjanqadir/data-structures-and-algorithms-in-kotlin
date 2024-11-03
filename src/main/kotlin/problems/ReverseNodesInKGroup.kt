@@ -71,7 +71,7 @@ private fun reverseGroup(start: ListNode, end: ListNode): Pair<ListNode, ListNod
 }
 
 // Test function to create linked list from array
-fun createLinkedList(arr: IntArray): ListNode? {
+private fun createLinkedList(arr: IntArray): ListNode? {
     if (arr.isEmpty()) return null
 
     val dummy = ListNode(0)
@@ -86,7 +86,7 @@ fun createLinkedList(arr: IntArray): ListNode? {
 }
 
 // Test function to convert linked list to array
-fun linkedListToArray(head: ListNode?): IntArray {
+private  fun linkedListToArray(head: ListNode?): IntArray {
     val result = mutableListOf<Int>()
     var current = head
 
