@@ -6,10 +6,6 @@ package problems
  * Space Complexity: O(H) where H is the height of the tree, for recursion stack
  */
 
-private class TreeNode(var `val`: Int) {
-  var left: TreeNode? = null
-  var right: TreeNode? = null
-}
 
 /**
  * Calculates the sum of all root-to-leaf paths where each path represents a number.
