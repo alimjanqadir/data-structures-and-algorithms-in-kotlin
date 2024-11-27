@@ -22,8 +22,8 @@ private fun isMirror(left: TreeNode?, right: TreeNode?): Boolean {
   if (left == null || right == null) return false
 
   return left.`val` == right.`val` &&
-      isMirror(left.left, right.right) &&
-      isMirror(left.right, right.left)
+    isMirror(left.left, right.right) &&
+    isMirror(left.right, right.left)
 }
 
 // Iterative solution using a queue
