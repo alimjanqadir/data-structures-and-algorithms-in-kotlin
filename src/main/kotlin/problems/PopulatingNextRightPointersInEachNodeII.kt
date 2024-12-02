@@ -1,21 +1,13 @@
 package problems
 
-/**
- * Definition for a Node in a binary tree.
- */
-private class Node(
-  var value: Int,
-  var left: Node? = null,
-  var right: Node? = null,
-  var next: Node? = null
-)
+
 
 /**
  * Populates next right pointers for each node in the binary tree.
  * Time Complexity: O(n) where n is the number of nodes
  * Space Complexity: O(1) as we only use constant extra space
  */
-private fun connect(root: Node?): Node? {
+private fun connect(root: DoublyLinkedListNode?): DoublyLinkedListNode? {
   // Base case: empty tree
   if (root == null) return null
 
@@ -25,7 +17,7 @@ private fun connect(root: Node?): Node? {
   // Continue until we process all levels
   while (levelStart != null) {
     // Use a dummy node to build the next level's connections
-    val dummyHead = Node(0)
+    val dummyHead = DoublyLinkedListNode(0)
     var current = dummyHead
 
     // Traverse the current level using the next pointers
@@ -60,13 +52,13 @@ private fun connect(root: Node?): Node? {
  */
 fun main() {
   // Create test case from Example 1
-  val root = Node(1).apply {
-    left = Node(2).apply {
-      left = Node(4)
-      right = Node(5)
+  val root = DoublyLinkedListNode(1).apply {
+    left = DoublyLinkedListNode(2).apply {
+      left = DoublyLinkedListNode(4)
+      right = DoublyLinkedListNode(5)
     }
-    right = Node(3).apply {
-      right = Node(7)
+    right = DoublyLinkedListNode(3).apply {
+      right = DoublyLinkedListNode(7)
     }
   }
 
@@ -80,7 +72,7 @@ fun main() {
 /**
  * Utility function to print level-order traversal with next pointers
  */
-private fun printLevelOrder(root: Node?) {
+private fun printLevelOrder(root: DoublyLinkedListNode?) {
   var levelStart = root
   while (levelStart != null) {
     var current = levelStart
