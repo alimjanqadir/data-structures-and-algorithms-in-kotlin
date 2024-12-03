@@ -1,5 +1,5 @@
 plugins {
-    id("org.jetbrains.kotlin.jvm") version "2.0.21"
+    id("org.jetbrains.kotlin.jvm") version "2.0.22"
     id("io.gitlab.arturbosch.detekt") version "1.23.0" // Use the latest version
 }
 
