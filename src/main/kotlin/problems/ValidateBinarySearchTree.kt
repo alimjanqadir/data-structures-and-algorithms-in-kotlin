@@ -33,7 +33,7 @@ private fun isValidBSTInRange(node: TreeNode?, minValue: Long, maxValue: Long): 
 
   // Recursively validate left and right subtrees with updated ranges
   return isValidBSTInRange(node.left, minValue, currentValue) &&
-      isValidBSTInRange(node.right, currentValue, maxValue)
+    isValidBSTInRange(node.right, currentValue, maxValue)
 }
 
 /**
