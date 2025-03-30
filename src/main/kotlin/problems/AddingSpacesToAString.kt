@@ -2,17 +2,14 @@ package problems
 
 fun addSpaces(inputString: String, spaceIndices: IntArray): String {
     val resultBuilder = StringBuilder()
-    var currentSpaceIndex = 0
-    val totalCharacters = inputString.length
-    val totalSpaces = spaceIndices.size
-
-    for (currentCharacterIndex in 0 until totalCharacters) {
-        // Check if the current character needs a space before it
-        if (currentSpaceIndex < totalSpaces && currentCharacterIndex == spaceIndices[currentSpaceIndex]) {
+    var spaceIndex = 0
+    
+    for (i in inputString.indices) {
+        if (spaceIndex < spaceIndices.size && i == spaceIndices[spaceIndex]) {
             resultBuilder.append(' ')
-            currentSpaceIndex++
+            spaceIndex++
         }
-        resultBuilder.append(inputString[currentCharacterIndex])
+        resultBuilder.append(inputString[i])
     }
     
     return resultBuilder.toString()
