@@ -3,7 +3,7 @@ package problems
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-class TripletValueTest {
+class MaximumTripletValueTest {
     @Test
     fun testMaximumTripletValue() {
         assertEquals(77, maximumTripletValue(intArrayOf(12, 6, 1, 2, 7)))
