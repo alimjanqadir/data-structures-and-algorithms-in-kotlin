@@ -7,7 +7,7 @@ class CountSubarraysWithFixedBoundsTest {
         val nums = intArrayOf(1,3,5,2,7,5)
         val minK = 1
         val maxK = 5
-        assertEquals(2, countSubarrays(nums, minK, maxK))
+        assertEquals(2, countSubarraysWithFixedBounds(nums, minK, maxK))
     }
 
     @Test
@@ -15,7 +15,7 @@ class CountSubarraysWithFixedBoundsTest {
         val nums = intArrayOf(1,1,1,1)
         val minK = 1
         val maxK = 1
-        assertEquals(10, countSubarrays(nums, minK, maxK))
+        assertEquals(10, countSubarraysWithFixedBounds(nums, minK, maxK))
     }
 
     @Test
@@ -23,7 +23,7 @@ class CountSubarraysWithFixedBoundsTest {
         val nums = intArrayOf(2,4,6)
         val minK = 1
         val maxK = 3
-        assertEquals(0, countSubarrays(nums, minK, maxK))
+        assertEquals(0, countSubarraysWithFixedBounds(nums, minK, maxK))
     }
 
     @Test
@@ -31,6 +31,6 @@ class CountSubarraysWithFixedBoundsTest {
         val nums = intArrayOf(5)
         val minK = 5
         val maxK = 5
-        assertEquals(1, countSubarrays(nums, minK, maxK))
+        assertEquals(1, countSubarraysWithFixedBounds(nums, minK, maxK))
     }
 }
