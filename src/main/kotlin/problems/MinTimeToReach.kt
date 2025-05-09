@@ -1,3 +1,4 @@
+import java.util.PriorityQueue
 private data class State(val timeToArrive: Int, val row: Int, val col: Int) : Comparable<State> {
     override fun compareTo(other: State): Int = this.timeToArrive.compareTo(other.timeToArrive)
 }
