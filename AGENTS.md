@@ -13,4 +13,4 @@ This project follows the **WindSurf Rule** for contributions:
    - `chore(build): update dependencies`
    - `docs: update instructions`
 
-This AGENTS file applies to the entire repository.
+This AGENTS file applies repository-wide.
