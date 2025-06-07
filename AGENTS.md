@@ -1,16 +1,28 @@
-# Contribution Guidelines (WindSurf Rule)
+# AGENTS.md
 
-This project follows the **WindSurf Rule** for contributions:
+## Code Quality
 
-1. **Testing and Lint** – Run the following commands before committing:
-   ```
-   ./gradlew test
-   ./gradlew detekt
-   ```
-   Ensure all tests pass and there are no detekt violations.
-2. **Commit Messages** – Use the form `type(scope): summary`. Examples:
-   - `feat(leetcode): add new solution`
-   - `chore(build): update dependencies`
-   - `docs: update instructions`
+Before committing, please ensure the following:
 
-This AGENTS file applies repository-wide.
+### Testing and Linting
+
+Run the following commands:
+
+```bash
+./gradlew test
+./gradlew detekt
+```
+
+Verify that all tests pass and there are no Detekt violations.
+
+---
+
+## Commit Messages
+
+Commit messages should follow the conventional commit format: `type(scope): summary`.
+
+Here are some examples:
+
+* `feat(leetcode): add new solution`
+* `chore(build): update dependencies`
+* `docs: update instructions`
