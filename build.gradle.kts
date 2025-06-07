@@ -3,6 +3,10 @@ plugins {
     id("io.gitlab.arturbosch.detekt") version "1.23.0" // Use the latest version
 }
 
+kotlin {
+    jvmToolchain(17)
+}
+
 group = "org.example"
 version = "1.0-SNAPSHOT"
 
