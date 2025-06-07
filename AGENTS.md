@@ -1,4 +1,4 @@
-# WindSurf Rule
+# Contribution Guidelines (WindSurf Rule)
 
 This project follows the **WindSurf Rule** for contributions:
 
