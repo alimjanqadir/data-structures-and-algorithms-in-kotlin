@@ -11,21 +11,21 @@ import java.util.Arrays
  * @return The count of pairs satisfying the condition.
  */
 private fun countPairsLessThanOrEqual(nums: IntArray, threshold: Long): Long {
-    var count = 0L
-    var left = 0
-    var right = nums.size - 1
+  var count = 0L
+  var left = 0
+  var right = nums.size - 1
 
-    while (left < right) {
-        val currentSum = nums[left].toLong() + nums[right].toLong()
+  while (left < right) {
+    val currentSum = nums[left].toLong() + nums[right].toLong()
 
-        if (currentSum <= threshold) {
-            count += (right - left)
-            left++
-        } else {
-            right--
-        }
+    if (currentSum <= threshold) {
+      count += (right - left)
+      left++
+    } else {
+      right--
     }
-    return count
+  }
+  return count
 }
 
 /**
@@ -38,8 +38,8 @@ private fun countPairsLessThanOrEqual(nums: IntArray, threshold: Long): Long {
  * @return The total number of fair pairs.
  */
 fun countFairPairs(nums: IntArray, lower: Int, upper: Int): Long {
-    Arrays.sort(nums)
-    val countUpper = countPairsLessThanOrEqual(nums, upper.toLong())
-    val countLowerMinus1 = countPairsLessThanOrEqual(nums, lower.toLong() - 1)
-    return countUpper - countLowerMinus1
+  Arrays.sort(nums)
+  val countUpper = countPairsLessThanOrEqual(nums, upper.toLong())
+  val countLowerMinus1 = countPairsLessThanOrEqual(nums, lower.toLong() - 1)
+  return countUpper - countLowerMinus1
 }

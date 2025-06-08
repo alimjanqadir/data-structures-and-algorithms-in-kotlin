@@ -1,6 +1,6 @@
 package problems
 
-import java.util.*
+import java.util.PriorityQueue
 
 fun minCost(maxTime: Int, edges: Array<IntArray>, passingFees: IntArray): Int {
   val n = passingFees.size

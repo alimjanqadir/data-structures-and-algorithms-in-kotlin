@@ -10,18 +10,18 @@ package problems
  * - The lowest common ancestor of a set S of nodes is the node A with the largest depth such that every node in S is in the subtree of A
  */
 internal fun lcaDeepestLeaves(root: TreeNode?): TreeNode? {
-    fun dfs(node: TreeNode?): Pair<TreeNode?, Int> {
-        if (node == null) return Pair(null, 0)
+  fun dfs(node: TreeNode?): Pair<TreeNode?, Int> {
+    if (node == null) return Pair(null, 0)
 
-        val (leftLCA, leftDepth) = dfs(node.left)
-        val (rightLCA, rightDepth) = dfs(node.right)
+    val (leftLCA, leftDepth) = dfs(node.left)
+    val (rightLCA, rightDepth) = dfs(node.right)
 
-        return when {
-            leftDepth == rightDepth -> Pair(node, leftDepth + 1)
-            leftDepth > rightDepth -> Pair(leftLCA, leftDepth + 1)
-            else -> Pair(rightLCA, rightDepth + 1)
-        }
+    return when {
+      leftDepth == rightDepth -> Pair(node, leftDepth + 1)
+      leftDepth > rightDepth -> Pair(leftLCA, leftDepth + 1)
+      else -> Pair(rightLCA, rightDepth + 1)
     }
+  }
 
-    return dfs(root).first
+  return dfs(root).first
 }

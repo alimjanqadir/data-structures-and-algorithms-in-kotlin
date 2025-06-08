@@ -6,10 +6,10 @@ package problems
  * Space Complexity: O(n) for storing elements greater than k
  */
 fun minOperations(nums: IntArray, k: Int): Int {
-    val greaterSet = sortedSetOf<Int>()
-    for (num in nums) {
-        if (num < k) return -1
-        if (num > k) greaterSet.add(num)
-    }
-    return greaterSet.size
+  val greaterSet = sortedSetOf<Int>()
+  for (num in nums) {
+    if (num < k) return -1
+    if (num > k) greaterSet.add(num)
+  }
+  return greaterSet.size
 }

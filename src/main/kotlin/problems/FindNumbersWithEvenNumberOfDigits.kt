@@ -6,8 +6,8 @@ import kotlin.math.log10
  */
 
 fun findNumbersWithEvenNumberOfDigits(nums: IntArray): Int =
-    nums.count { number ->
-        // digits = ⌊log₁₀(number)⌋ + 1   (number ≥ 1 by constraints)
-        val digitCount = log10(number.toDouble()).toInt() + 1
-        digitCount % 2 == 0
-    }
+  nums.count { number ->
+    // digits = ⌊log₁₀(number)⌋ + 1   (number ≥ 1 by constraints)
+    val digitCount = log10(number.toDouble()).toInt() + 1
+    digitCount % 2 == 0
+  }
