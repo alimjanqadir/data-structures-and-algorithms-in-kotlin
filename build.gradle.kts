@@ -26,4 +26,5 @@ tasks.test {
 detekt {
     config.from("$projectDir/detekt.yml")
     autoCorrect = true
+    baseline = file("$projectDir/detekt-baseline.xml")
 }
