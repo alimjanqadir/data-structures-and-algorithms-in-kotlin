@@ -21,17 +21,17 @@ package problems
  * Output: "isosceles"
  */
 fun triangleType(nums: IntArray): String {
-    nums.sort()
-    val a = nums[0]
-    val b = nums[1]
-    val c = nums[2]
-    if (a + b <= c) {
-        return "none"
-    } else if (a == c) {
-        return "equilateral"
-    } else if (a == b || b == c) {
-        return "isosceles"
-    } else {
-        return "scalene"
-    }
+  nums.sort()
+  val a = nums[0]
+  val b = nums[1]
+  val c = nums[2]
+  if (a + b <= c) {
+    return "none"
+  } else if (a == c) {
+    return "equilateral"
+  } else if (a == b || b == c) {
+    return "isosceles"
+  } else {
+    return "scalene"
+  }
 }

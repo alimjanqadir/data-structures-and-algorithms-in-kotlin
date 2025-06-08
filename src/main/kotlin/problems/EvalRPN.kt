@@ -1,6 +1,6 @@
 package problems
 
-import java.util.*
+import java.util.ArrayDeque
 
 /**
  * Solution for evaluating Reverse Polish Notation expressions.

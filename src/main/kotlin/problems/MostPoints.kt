@@ -8,18 +8,18 @@ package problems
  * @return Maximum points that can be earned
  */
 fun mostPoints(questions: Array<IntArray>): Long {
-    val n = questions.size
-    val dp = LongArray(n + 1) // dp[n] = 0 by default
+  val n = questions.size
+  val dp = LongArray(n + 1) // dp[n] = 0 by default
 
-    for (i in n - 1 downTo 0) {
-        val (points, brainpower) = questions[i]
-        val nextIndex = i + brainpower + 1
+  for (i in n - 1 downTo 0) {
+    val (points, brainpower) = questions[i]
+    val nextIndex = i + brainpower + 1
 
-        val take = points + if (nextIndex < n) dp[nextIndex] else 0
-        val skip = dp[i + 1]
+    val take = points + if (nextIndex < n) dp[nextIndex] else 0
+    val skip = dp[i + 1]
 
-        dp[i] = maxOf(take, skip)
-    }
+    dp[i] = maxOf(take, skip)
+  }
 
-    return dp[0]
+  return dp[0]
 }

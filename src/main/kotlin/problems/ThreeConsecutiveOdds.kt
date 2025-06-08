@@ -4,14 +4,14 @@
  */
 
 fun threeConsecutiveOdds(arr: IntArray): Boolean {
-    var consecutiveOdds = 0        // length of current streak of odd numbers
-    for (number in arr) {
-        if (number and 1 == 1) {   // faster than % 2 for small ints
-            consecutiveOdds += 1
-            if (consecutiveOdds == 3) return true
-        } else {
-            consecutiveOdds = 0
-        }
+  var consecutiveOdds = 0        // length of current streak of odd numbers
+  for (number in arr) {
+    if (number and 1 == 1) {   // faster than % 2 for small ints
+      consecutiveOdds += 1
+      if (consecutiveOdds == 3) return true
+    } else {
+      consecutiveOdds = 0
     }
-    return false
+  }
+  return false
 }

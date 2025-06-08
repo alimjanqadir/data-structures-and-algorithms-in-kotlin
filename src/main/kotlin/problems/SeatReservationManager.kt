@@ -1,5 +1,6 @@
 package problems
-import java.util.*
+import java.util.PriorityQueue
+import java.util.TreeSet
 
 class SeatManagerBruteForce(n: Int) {
   private val unreservedSeats = MutableList(n) { it + 1 }

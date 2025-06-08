@@ -13,19 +13,19 @@ package problems
  * Note: Function name is unique and top-level per project rules.
  */
 fun countSubarraysWhereMaxElementAppearsAtLeastKTimes(nums: IntArray, k: Int): Long {
-    val maxValue = nums.maxOrNull()!!               // global maximum M
-    val maxPositions = ArrayDeque<Int>()            // indices where nums[i] == M
-    var qualifiedCount = 0L
+  val maxValue = nums.maxOrNull()!!               // global maximum M
+  val maxPositions = ArrayDeque<Int>()            // indices where nums[i] == M
+  var qualifiedCount = 0L
 
-    for (currentIndex in nums.indices) {
-        if (nums[currentIndex] == maxValue) {
-            maxPositions.addLast(currentIndex)
-        }
-
-        if (maxPositions.size >= k) {
-            val kthLatestIndex = maxPositions[maxPositions.size - k]
-            qualifiedCount += (kthLatestIndex + 1)  // all starts 0..kthLatestIndex
-        }
+  for (currentIndex in nums.indices) {
+    if (nums[currentIndex] == maxValue) {
+      maxPositions.addLast(currentIndex)
     }
-    return qualifiedCount
+
+    if (maxPositions.size >= k) {
+      val kthLatestIndex = maxPositions[maxPositions.size - k]
+      qualifiedCount += (kthLatestIndex + 1)  // all starts 0..kthLatestIndex
+    }
+  }
+  return qualifiedCount
 }
