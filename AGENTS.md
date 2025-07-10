@@ -4,6 +4,11 @@
 
 Before committing, please ensure the following:
 
+## Code Style
+
+- All problem solutions must implemented as Top Level Function.
+- You must not change the the commiting code logic naming included, you can reformat code based on the Detekt check.
+
 ### Testing and Linting
 
 Run the following commands:
