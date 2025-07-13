@@ -1,71 +1,76 @@
 package problems
 
-fun earliestAndLatest(n: Int, firstPlayer: Int, secondPlayer: Int): IntArray {
-  val originalPlayers = n
-  val favouriteA = minOf(firstPlayer, secondPlayer)
-  val favouriteB = maxOf(firstPlayer, secondPlayer)
-  val startMask = (1 until n).fold(1) { m, i -> m or (1 shl i) }
-  val memo = HashMap<Int, IntArray>()
+fun earliestAndLatest(
+  totalNumberOfPlayers: Int,
+  firstFavoritePlayer: Int,
+  secondFavoritePlayer: Int
+): IntArray {
+  val lowerFavoritePlayer = minOf(firstFavoritePlayer, secondFavoritePlayer)
+  val higherFavoritePlayer = maxOf(firstFavoritePlayer, secondFavoritePlayer)
+  val memoizedResults = mutableMapOf<Int, IntArray>()
 
-  fun dfs(mask: Int): IntArray {
-    memo[mask]?.let { return it }
+  fun computeRounds(currentPlayersBitmask: Int): IntArray {
+    memoizedResults[currentPlayersBitmask]?.let { return it }
 
-    val currentRow = mutableListOf<Int>()
-    for (player in 1..originalPlayers) {
-      if ((mask shr (player - 1) and 1) == 1) currentRow += player
+    val activePlayers = mutableListOf<Int>()
+    for (playerNumber in 1..totalNumberOfPlayers) {
+      if ((currentPlayersBitmask shr (playerNumber - 1) and 1) == 1) activePlayers += playerNumber
     }
-    val playersNow = currentRow.size
-    val halfPairs = playersNow / 2
+    val numberOfActivePlayers = activePlayers.size
+    val numberOfMatchesThisRound = numberOfActivePlayers / 2
 
-    for (i in 0 until halfPairs) {
-      val left = currentRow[i]
-      val right = currentRow[playersNow - 1 - i]
-      if ((left == favouriteA && right == favouriteB) ||
-        (left == favouriteB && right == favouriteA)
+    for (matchIndex in 0 until numberOfMatchesThisRound) {
+      val playerFromStart = activePlayers[matchIndex]
+      val playerFromEnd = activePlayers[numberOfActivePlayers - 1 - matchIndex]
+      if ((playerFromStart == lowerFavoritePlayer && playerFromEnd == higherFavoritePlayer) ||
+        (playerFromStart == higherFavoritePlayer && playerFromEnd == lowerFavoritePlayer)
       ) {
-        val result = intArrayOf(1, 1)
-        memo[mask] = result
-        return result
+        return intArrayOf(1, 1).also { memoizedResults[currentPlayersBitmask] = it }
       }
     }
 
-    val nextMasks = HashSet<Int>()
+    val nextRoundBitmaskOptions = mutableSetOf<Int>()
 
-    fun dfsPairs(pairIdx: Int, nextMask: Int) {
-      if (pairIdx == halfPairs) {
-        val finalMask = if (playersNow and 1 == 1)
-          nextMask or (1 shl (currentRow[halfPairs] - 1))
+    fun generateNextRoundConfigurations(currentMatchNumber: Int, accumulatedBitmask: Int) {
+      if (currentMatchNumber == numberOfMatchesThisRound) {
+        val finalBitmask = if (numberOfActivePlayers and 1 == 1)
+          accumulatedBitmask or (1 shl (activePlayers[numberOfMatchesThisRound] - 1))
         else
-          nextMask
-        nextMasks += finalMask
+          accumulatedBitmask
+        nextRoundBitmaskOptions += finalBitmask
         return
       }
 
-      val left = currentRow[pairIdx]
-      val right = currentRow[playersNow - 1 - pairIdx]
+      val playerOnLeft = activePlayers[currentMatchNumber]
+      val playerOnRight = activePlayers[numberOfActivePlayers - 1 - currentMatchNumber]
+
       when {
-        left == favouriteA || left == favouriteB -> dfsPairs(pairIdx + 1, nextMask or (1 shl (left - 1)))
-        right == favouriteA || right == favouriteB -> dfsPairs(pairIdx + 1, nextMask or (1 shl (right - 1)))
+        playerOnLeft == lowerFavoritePlayer || playerOnLeft == higherFavoritePlayer -> {
+          generateNextRoundConfigurations(currentMatchNumber + 1, accumulatedBitmask or (1 shl (playerOnLeft - 1)))
+        }
+        playerOnRight == lowerFavoritePlayer || playerOnRight == higherFavoritePlayer -> {
+          generateNextRoundConfigurations(currentMatchNumber + 1, accumulatedBitmask or (1 shl (playerOnRight - 1)))
+        }
         else -> {
-          dfsPairs(pairIdx + 1, nextMask or (1 shl (left - 1)))
-          dfsPairs(pairIdx + 1, nextMask or (1 shl (right - 1)))
+          generateNextRoundConfigurations(currentMatchNumber + 1, accumulatedBitmask or (1 shl (playerOnLeft - 1)))
+          generateNextRoundConfigurations(currentMatchNumber + 1, accumulatedBitmask or (1 shl (playerOnRight - 1)))
         }
       }
     }
 
-    dfsPairs(0, 0)
+    generateNextRoundConfigurations(0, 0)
 
-    var earliest = Int.MAX_VALUE
-    var latest = Int.MIN_VALUE
-    for (next in nextMasks) {
-      val sub = dfs(next)
-      earliest = minOf(earliest, sub[0] + 1)
-      latest = maxOf(latest, sub[1] + 1)
+    var earliestPossibleRound = Int.MAX_VALUE
+    var latestPossibleRound = Int.MIN_VALUE
+    for (nextRoundBitmask in nextRoundBitmaskOptions) {
+      val roundsResult = computeRounds(nextRoundBitmask)
+      earliestPossibleRound = minOf(earliestPossibleRound, roundsResult[0] + 1)
+      latestPossibleRound = maxOf(latestPossibleRound, roundsResult[1] + 1)
     }
-    val res = intArrayOf(earliest, latest)
-    memo[mask] = res
-    return res
+    return intArrayOf(earliestPossibleRound, latestPossibleRound)
+      .also { memoizedResults[currentPlayersBitmask] = it }
   }
 
-  return dfs(startMask)
+  val initialFullPlayerBitmask = (1 shl totalNumberOfPlayers) - 1
+  return computeRounds(initialFullPlayerBitmask)
 }
