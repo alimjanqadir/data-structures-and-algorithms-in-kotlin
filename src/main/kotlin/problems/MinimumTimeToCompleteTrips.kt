@@ -31,12 +31,3 @@ fun canCompleteTrips(time: IntArray, givenTime: Long, totalTrips: Int): Boolean 
   return false
 }
 
-fun main() {
-  // Test assertions
-  assert(minimumTime(intArrayOf(1, 2, 3), 5) == 3L) { "Test case 1 failed" }
-  assert(minimumTime(intArrayOf(2), 1) == 2L) { "Test case 2 failed" }
-  assert(minimumTime(intArrayOf(3, 7, 9), 10) == 21L) { "Test case 3 failed" }
-  assert(minimumTime(intArrayOf(5, 10, 10), 9) == 25L) { "Test case 4 failed" }
-  assert(minimumTime(intArrayOf(1, 1, 1), 1000000) == 333334L) { "Test case 5 failed" }
-  println("All test cases passed!")
-}

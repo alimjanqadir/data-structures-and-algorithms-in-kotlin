@@ -107,35 +107,3 @@ private fun printTree(root: TreeNode?) {
   }
 }
 
-fun main() {
-  // Test Case 1: Basic tree
-  println("Test Case 1: Basic tree")
-  val preorder1 = intArrayOf(3, 9, 20, 15, 7)
-  val inorder1 = intArrayOf(9, 3, 15, 20, 7)
-  val result1 = buildTree(preorder1, inorder1)
-  printTree(result1)
-  // Expected output:
-  // 3
-  // 9 20
-  // 15 7
-
-  println("\nTest Case 2: Left-skewed tree")
-  val preorder2 = intArrayOf(1, 2, 3)
-  val inorder2 = intArrayOf(3, 2, 1)
-  val result2 = buildTree(preorder2, inorder2)
-  printTree(result2)
-  // Expected output:
-  // 1
-  // 2
-  // 3
-
-  println("\nTest Case 3: Right-skewed tree")
-  val preorder3 = intArrayOf(1, 2, 3)
-  val inorder3 = intArrayOf(1, 2, 3)
-  val result3 = buildTree(preorder3, inorder3)
-  printTree(result3)
-  // Expected output:
-  // 1
-  // 2
-  // 3
-}

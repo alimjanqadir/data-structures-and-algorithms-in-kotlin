@@ -52,11 +52,3 @@ fun minimizedStringLengthHashMap(s: String): Int {
 }
 
 // Example Usage (outside LeetCode environment):
-fun main() {
-  println("Input: aaabc, Output: ${minimizedStringLength("aaabc")}")       // Output: 3
-  println("Input: cbbd, Output: ${minimizedStringLength("cbbd")}")        // Output: 3
-  println("Input: baadccab, Output: ${minimizedStringLength("baadccab")}") // Output: 4
-  println("Input: hello, Output: ${minimizedStringLength("hello")}")       // Output: 4
-  println("Input: zzzzz, Output: ${minimizedStringLength("zzzzz")}")       // Output: 1
-  println("Input: abcdef, Output: ${minimizedStringLength("abcdef")}")     // Output: 6
-}

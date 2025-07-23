@@ -1,6 +1,6 @@
-package leetcode
+package problems
 
-fun isValid(word: String): Boolean {
+fun isValidWord(word: String): Boolean {
   if (word.length < 3) return false
 
   val vowels = setOf('a', 'e', 'i', 'o', 'u')
@@ -27,6 +27,6 @@ fun isValid(word: String): Boolean {
   return hasVowel && hasConsonant
 }
 
-class Solution {
-  fun isValid(word: String): Boolean = leetcode.isValid(word)
+class ValidWordSolution {
+  fun isValid(word: String): Boolean = problems.isValidWord(word)
 }

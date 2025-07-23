@@ -90,26 +90,3 @@ fun mincostTicketsFunctional(days: IntArray, costs: IntArray): Int {
   return calculateMinimumCost(days[0])
 }
 
-fun main() {
-  val testCases = listOf(
-    Triple(intArrayOf(1, 4, 6, 7, 8, 20), intArrayOf(2, 7, 15), 11),
-    Triple(intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 30, 31), intArrayOf(2, 7, 15), 17),
-    Triple(intArrayOf(1, 3, 5, 7, 12, 20, 30, 31), intArrayOf(2, 7, 15), 11),
-    Triple(intArrayOf(6, 7, 8, 9, 10, 12, 13, 14), intArrayOf(3, 13, 45), 13),
-    Triple(intArrayOf(1, 365), intArrayOf(2, 7, 15), 4),
-    Triple(intArrayOf(1), intArrayOf(2, 7, 15), 2), // Single day
-    Triple(intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10), intArrayOf(2, 7, 15), 10), // All consecutive
-    Triple(intArrayOf(1, 10, 20, 30, 40, 50), intArrayOf(2, 7, 15), 12) // Sparse days
-  )
-
-  for ((days, costs, expected) in testCases) {
-    val resultBruteForce = mincostTicketsBruteForce(days, costs)
-    val resultDP = mincostTicketsDP(days, costs)
-    val resultFunctional = mincostTicketsFunctional(days, costs)
-
-    assert(resultBruteForce == expected) { "Brute Force failed for days=${days.toList()}, expected=$expected, got=$resultBruteForce" }
-    assert(resultDP == expected) { "DP failed for days=${days.toList()}, expected=$expected, got=$resultDP" }
-    assert(resultFunctional == expected) { "Functional failed for days=${days.toList()}, expected=$expected, got=$resultFunctional" }
-  }
-  println("All test cases passed!")
-}

@@ -32,20 +32,6 @@ fun permute(nums: IntArray): List<List<Int>> {
 /**
  * Test cases
  */
-fun main() {
-  // Test Case 1: [1,2,3]
-  println(permute(intArrayOf(1, 2, 3)))
-  // Expected: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
-
-  // Test Case 2: [0,1]
-  println(permute(intArrayOf(0, 1)))
-  // Expected: [[0,1],[1,0]]
-
-  // Test Case 3: [1]
-  println(permute(intArrayOf(1)))
-  // Expected: [[1]]
-}
-
 /**
  * Optimizations applied:
  * 1. Used boolean array for tracking used elements instead of list modifications

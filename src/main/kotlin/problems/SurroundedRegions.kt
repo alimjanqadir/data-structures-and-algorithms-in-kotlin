@@ -54,33 +54,6 @@ private fun dfs(board: Array<CharArray>, row: Int, col: Int) {
 }
 
 // Test cases
-fun main() {
-  // Test Case 1
-  val board1 = arrayOf(
-    charArrayOf('X', 'X', 'X', 'X'),
-    charArrayOf('X', 'O', 'O', 'X'),
-    charArrayOf('X', 'X', 'O', 'X'),
-    charArrayOf('X', 'O', 'X', 'X')
-  )
-  println("Test Case 1 - Before:")
-  printBoard(board1)
-  surroundedRegions(board1)
-  println("After:")
-  printBoard(board1)
-
-  // Test Case 2
-  val board2 = arrayOf(
-    charArrayOf('O', 'O', 'O'),
-    charArrayOf('O', 'O', 'O'),
-    charArrayOf('O', 'O', 'O')
-  )
-  println("\nTest Case 2 - Before:")
-  printBoard(board2)
-  surroundedRegions(board2)
-  println("After:")
-  printBoard(board2)
-}
-
 fun printBoard(board: Array<CharArray>) {
   for (row in board) {
     println(row.joinToString(" "))

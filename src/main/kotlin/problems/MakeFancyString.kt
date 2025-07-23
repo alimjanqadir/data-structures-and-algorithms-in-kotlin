@@ -1,4 +1,4 @@
-package leetcode
+package problems
 
 fun makeFancyString(original: String): String {
   val fancyBuilder = StringBuilder()

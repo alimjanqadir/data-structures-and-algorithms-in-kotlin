@@ -69,36 +69,3 @@ private fun linkedListToArray(head: ListNode?): IntArray {
 /**
  * Test cases
  */
-fun main() {
-  // Test case 1: [1,2,3,3,4,4,5] → [1,2,5]
-  val test1 = createLinkedList(intArrayOf(1, 2, 3, 3, 4, 4, 5))
-  val result1 = deleteDuplicates(test1)
-  println("Test 1: ${linkedListToArray(result1).contentToString()}")
-  assert(linkedListToArray(result1).contentEquals(intArrayOf(1, 2, 5)))
-
-  // Test case 2: [1,1,1,2,3] → [2,3]
-  val test2 = createLinkedList(intArrayOf(1, 1, 1, 2, 3))
-  val result2 = deleteDuplicates(test2)
-  println("Test 2: ${linkedListToArray(result2).contentToString()}")
-  assert(linkedListToArray(result2).contentEquals(intArrayOf(2, 3)))
-
-  // Test case 3: Empty list
-  val test3 = createLinkedList(intArrayOf())
-  val result3 = deleteDuplicates(test3)
-  println("Test 3: ${linkedListToArray(result3).contentToString()}")
-  assert(linkedListToArray(result3).contentEquals(intArrayOf()))
-
-  // Test case 4: Single element
-  val test4 = createLinkedList(intArrayOf(1))
-  val result4 = deleteDuplicates(test4)
-  println("Test 4: ${linkedListToArray(result4).contentToString()}")
-  assert(linkedListToArray(result4).contentEquals(intArrayOf(1)))
-
-  // Test case 5: All duplicates
-  val test5 = createLinkedList(intArrayOf(1, 1, 1))
-  val result5 = deleteDuplicates(test5)
-  println("Test 5: ${linkedListToArray(result5).contentToString()}")
-  assert(linkedListToArray(result5).contentEquals(intArrayOf()))
-
-  println("All test cases passed!")
-}

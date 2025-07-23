@@ -1,9 +1,9 @@
-import leetcode.Solution
+import problems.ValidWordSolution
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
 class ValidWordTest {
-  private val solution = Solution()
+  private val solution = ValidWordSolution()
 
   @Test
   fun testIsValidWord() {

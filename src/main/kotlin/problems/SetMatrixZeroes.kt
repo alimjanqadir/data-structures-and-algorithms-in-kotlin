@@ -139,12 +139,6 @@ fun zeroColumn(matrix: Array<IntArray>, col: Int) {
   }
 }
 
-fun main() {
-  testSetZeroes(::setZeroesBruteForce)
-  testSetZeroes(::setZeroesOptimized)
-  testSetZeroes(::setZeroesFunctional)
-}
-
 fun testSetZeroes(setZeroesFunc: (Array<IntArray>) -> Unit) {
   val testCases = listOf(
     // Test case 1

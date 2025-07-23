@@ -45,33 +45,3 @@ private fun maxDepthIterative(root: TreeNode?): Int {
 /**
  * Test cases to verify the solution
  */
-fun main() {
-  // Test case 1: [3,9,20,null,null,15,7]
-  val tree1 = TreeNode(3).apply {
-    left = TreeNode(9)
-    right = TreeNode(20).apply {
-      left = TreeNode(15)
-      right = TreeNode(7)
-    }
-  }
-
-  // Test case 2: [1,null,2]
-  val tree2 = TreeNode(1).apply {
-    right = TreeNode(2)
-  }
-
-  // Test case 3: empty tree
-  val tree3: TreeNode? = null
-
-  // Test recursive solution
-  println("Recursive Solution:")
-  println("Test 1: ${maxDepth(tree1)} (Expected: 3)")
-  println("Test 2: ${maxDepth(tree2)} (Expected: 2)")
-  println("Test 3: ${maxDepth(tree3)} (Expected: 0)")
-
-  // Test iterative solution
-  println("\nIterative Solution:")
-  println("Test 1: ${maxDepthIterative(tree1)} (Expected: 3)")
-  println("Test 2: ${maxDepthIterative(tree2)} (Expected: 2)")
-  println("Test 3: ${maxDepthIterative(tree3)} (Expected: 0)")
-}

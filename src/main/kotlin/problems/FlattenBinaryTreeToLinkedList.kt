@@ -68,37 +68,6 @@ private fun flatten(root: TreeNode?): Unit {
 /**
  * Test cases to verify the implementation
  */
-fun main() {
-  // Test Case 1: Example from the problem
-  val root1 = TreeNode(1).apply {
-    left = TreeNode(2).apply {
-      left = TreeNode(3)
-      right = TreeNode(4)
-    }
-    right = TreeNode(5).apply {
-      right = TreeNode(6)
-    }
-  }
-
-  println("Test Case 1:")
-  println("Before flattening:")
-  printTree(root1)
-  flatten(root1)
-  println("After flattening:")
-  printLinkedList(root1)
-
-  // Test Case 2: Empty tree
-  println("\nTest Case 2:")
-  flatten(null)
-  println("Empty tree - no output expected")
-
-  // Test Case 3: Single node
-  val root3 = TreeNode(0)
-  println("\nTest Case 3:")
-  flatten(root3)
-  printLinkedList(root3)
-}
-
 /**
  * Helper function to print the flattened tree as a linked list
  */

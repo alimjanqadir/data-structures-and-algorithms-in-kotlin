@@ -77,25 +77,3 @@ class Solution3 {
   }
 }
 
-fun main() {
-  val solution1 = Solution()
-  val solution2 = Solution2()
-  val solution3 = Solution3()
-
-  // Test cases
-  listOf(1, 2, 3, 4).forEach { n ->
-    println("\nTesting n = $n:")
-    println("Functional approach: ${solution1.generateStrings(n).sorted()}")
-    println("Backtracking approach: ${solution2.generateStrings(n).sorted()}")
-    println("Dynamic Programming approach: ${solution3.generateStrings(n).sorted()}")
-  }
-
-  // Performance test for n = 15
-  val n = 15
-  val start = System.currentTimeMillis()
-  val count = solution2.generateStrings(n).size
-  val end = System.currentTimeMillis()
-  println("\nPerformance test for n = $n:")
-  println("Generated $count strings in ${end - start}ms")
-}
-

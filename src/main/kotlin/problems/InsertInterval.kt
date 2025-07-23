@@ -50,37 +50,3 @@ fun insert(intervals: Array<IntArray>, newInterval: IntArray): Array<IntArray> {
   return result
 }
 
-fun main() {
-  // Test case 1: Normal case
-  val test1 = insert(
-    arrayOf(intArrayOf(1,3), intArrayOf(6,9)),
-    intArrayOf(2,5)
-  )
-  println("Test 1: ${test1.contentDeepToString()}")
-
-  // Test case 2: Multiple overlapping intervals
-  val test2 = insert(
-    arrayOf(intArrayOf(1,2), intArrayOf(3,5), intArrayOf(6,7), intArrayOf(8,10), intArrayOf(12,16)),
-    intArrayOf(4,8)
-  )
-  println("Test 2: ${test2.contentDeepToString()}")
-
-  // Test case 3: Empty intervals
-  val test3 = insert(arrayOf(), intArrayOf(5,7))
-  println("Test 3: ${test3.contentDeepToString()}")
-
-  // Test case 4: Insert at beginning
-  val test4 = insert(
-    arrayOf(intArrayOf(3,5), intArrayOf(6,9)),
-    intArrayOf(1,2)
-  )
-  println("Test 4: ${test4.contentDeepToString()}")
-
-  // Test case 5: Insert at end
-  val test5 = insert(
-    arrayOf(intArrayOf(1,2), intArrayOf(3,5)),
-    intArrayOf(6,8)
-  )
-  println("Test 5: ${test5.contentDeepToString()}")
-}
-

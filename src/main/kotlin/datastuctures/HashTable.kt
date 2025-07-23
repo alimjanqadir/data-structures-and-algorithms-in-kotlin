@@ -21,13 +21,3 @@ class HashTable {
   }
 }
 
-fun main() {
-  val hashTable = HashTable()
-  hashTable.put("ab", "Hello")
-  hashTable.put("ac", "Hi")
-  hashTable.put("ad", "good morning!")
-
-  println(hashTable.get("ab"))
-  println(hashTable.get("ac"))
-  println(hashTable.get("ad"))
-}

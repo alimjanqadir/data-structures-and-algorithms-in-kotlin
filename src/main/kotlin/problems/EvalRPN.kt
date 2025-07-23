@@ -102,20 +102,3 @@ fun evalRPNExtensions(tokens: Array<String>): Int {
   }.single()
 }
 
-fun main() {
-
-  // Test cases
-  val testCases = listOf(
-    arrayOf("2", "1", "+", "3", "*"),
-    arrayOf("4", "13", "5", "/", "+"),
-    arrayOf("10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+")
-  )
-
-  println("Testing different implementations:")
-  testCases.forEachIndexed { index, tokens ->
-    println("\nTest case ${index + 1}: ${tokens.joinToString()}")
-    println("Imperative result: ${evalRPNImperative(tokens)}")
-    println("Functional result: ${evalRPNFunctional(tokens)}")
-    println("Extensions result: ${evalRPNExtensions(tokens)}")
-  }
-}

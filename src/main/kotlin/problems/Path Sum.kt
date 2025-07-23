@@ -24,31 +24,3 @@ private fun hasPathSum(root: TreeNode?, targetSum: Int): Boolean {
 /**
  * Example usage:
  */
-fun main() {
-  // Create test case from Example 1
-  val root = TreeNode(5).apply {
-    left = TreeNode(4).apply {
-      left = TreeNode(11).apply {
-        left = TreeNode(7)
-        right = TreeNode(2)
-      }
-    }
-    right = TreeNode(8).apply {
-      left = TreeNode(13)
-      right = TreeNode(4).apply {
-        right = TreeNode(1)
-      }
-    }
-  }
-
-  // Test cases
-  println("Test case 1 (should be true): ${hasPathSum(root, 22)}")
-  println("Test case 2 (empty tree): ${hasPathSum(null, 0)}")
-
-  // Create test case from Example 2
-  val root2 = TreeNode(1).apply {
-    left = TreeNode(2)
-    right = TreeNode(3)
-  }
-  println("Test case 3 (should be false): ${hasPathSum(root2, 5)}")
-}

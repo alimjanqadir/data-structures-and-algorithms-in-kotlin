@@ -32,32 +32,3 @@ fun maxScoreSightseeingPairFunctional(values: IntArray): Int {
   }.second // Extract the maxScore from the final pair
 }
 
-fun main() {
-  // Example 1:
-  // Input: [8, 1, 5, 2, 6]
-  // Expected Output: 11
-  println("=== Example 1 ===")
-  val values1 = intArrayOf(8, 1, 5, 2, 6)
-  println("Input: ${values1.joinToString(", ")}")
-  val result1 = maxScoreSightseeingPair(values1)
-  println("Output: $result1") // Expected: 11
-  println()
-  // Example 2:
-  // Input: [1, 2]
-  // Expected Output: 2
-  println("=== Example 2 ===")
-  val values2 = intArrayOf(1, 2)
-  println("Input: ${values2.joinToString(", ")}")
-  val result2 = maxScoreSightseeingPair(values2)
-  println("Output: $result2") // Expected: 2
-  println()
-  // Example 3:
-  // Input: [5, 3, 7, 7, 6]
-  // Expected Output: 13
-  println("=== Example 3 ===")
-  val values3 = intArrayOf(5, 3, 7, 7, 6)
-  println("Input: ${values3.joinToString(", ")}")
-  val result3 = maxScoreSightseeingPair(values3)
-  println("Output: $result3") // Expected: 13
-  println()
-}

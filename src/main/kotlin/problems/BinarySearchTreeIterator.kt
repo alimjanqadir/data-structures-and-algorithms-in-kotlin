@@ -55,40 +55,6 @@ private class BSTIterator(root: TreeNode?) {
 /**
  * Test cases for BSTIterator
  */
-fun main() {
-  // Test Case 1: Given example
-  val root = TreeNode(7).apply {
-    left = TreeNode(3)
-    right = TreeNode(15).apply {
-      left = TreeNode(9)
-      right = TreeNode(20)
-    }
-  }
-
-  val iterator = BSTIterator(root)
-  println("Test Case 1:")
-  println(iterator.next())    // returns 3
-  println(iterator.next())    // returns 7
-  println(iterator.hasNext()) // returns true
-  println(iterator.next())    // returns 9
-  println(iterator.hasNext()) // returns true
-  println(iterator.next())    // returns 15
-  println(iterator.hasNext()) // returns true
-  println(iterator.next())    // returns 20
-  println(iterator.hasNext()) // returns false
-
-  // Test Case 2: Empty tree
-  println("\nTest Case 2:")
-  val emptyIterator = BSTIterator(null)
-  println(emptyIterator.hasNext()) // returns false
-
-  // Test Case 3: Single node tree
-  println("\nTest Case 3:")
-  val singleNodeIterator = BSTIterator(TreeNode(1))
-  println(singleNodeIterator.next())    // returns 1
-  println(singleNodeIterator.hasNext()) // returns false
-}
-
 /**
  * Complexity Analysis:
  *

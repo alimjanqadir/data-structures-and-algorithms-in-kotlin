@@ -50,25 +50,6 @@ private fun connect(root: DoublyLinkedListNode?): DoublyLinkedListNode? {
 /**
  * Example usage and test cases
  */
-fun main() {
-  // Create test case from Example 1
-  val root = DoublyLinkedListNode(1).apply {
-    left = DoublyLinkedListNode(2).apply {
-      left = DoublyLinkedListNode(4)
-      right = DoublyLinkedListNode(5)
-    }
-    right = DoublyLinkedListNode(3).apply {
-      right = DoublyLinkedListNode(7)
-    }
-  }
-
-  // Connect nodes
-  connect(root)
-
-  // Print level-order traversal with next pointers
-  printLevelOrder(root)
-}
-
 /**
  * Utility function to print level-order traversal with next pointers
  */

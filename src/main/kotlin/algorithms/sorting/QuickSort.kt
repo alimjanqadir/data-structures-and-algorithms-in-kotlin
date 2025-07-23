@@ -1,9 +1,3 @@
-fun main() {
-  println(quickSort(arrayOf(9, 7, 5, 3, 10)).joinToString())
-  println(quickSort(arrayOf(11, 7, 5, 3, -1)).joinToString())
-  println(quickSort(arrayOf(11, 7, 0, 3, -1)).joinToString())
-}
-
 fun quickSort(collection: Array<Int>): Array<Int> {
   val mutableList = collection.copyOf().toMutableList()
   fun quickSortHelper(left: Int, right: Int) {

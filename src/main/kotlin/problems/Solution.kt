@@ -72,22 +72,3 @@ private fun dfs(
 }
 
 // Test cases
-fun main() {
-  // Test case 1
-  val board1 = arrayOf(
-    charArrayOf('o', 'a', 'a', 'n'),
-    charArrayOf('e', 't', 'a', 'e'),
-    charArrayOf('i', 'h', 'k', 'r'),
-    charArrayOf('i', 'f', 'l', 'v')
-  )
-  val words1 = arrayOf("oath", "pea", "eat", "rain")
-  println("Test 1: ${findWords(board1, words1)}")  // Expected: [eat, oath]
-
-  // Test case 2
-  val board2 = arrayOf(
-    charArrayOf('a', 'b'),
-    charArrayOf('c', 'd')
-  )
-  val words2 = arrayOf("abcb")
-  println("Test 2: ${findWords(board2, words2)}")  // Expected: []
-}

@@ -67,32 +67,6 @@ fun copyRandomList(head: Node?): Node? {
 }
 
 // Test function
-fun main() {
-  // Create test case from Example 1
-  val node1 = Node(7)
-  val node2 = Node(13)
-  val node3 = Node(11)
-  val node4 = Node(10)
-  val node5 = Node(1)
-
-  node1.next = node2
-  node2.next = node3
-  node3.next = node4
-  node4.next = node5
-
-  node2.random = node1
-  node3.random = node5
-  node4.random = node3
-  node5.random = node1
-
-  // Test both solutions
-  println("Testing HashMap Solution:")
-  printList(copyRandomListHashMap(node1))
-
-  println("\nTesting Interleaved Solution:")
-  printList(copyRandomList(node1))
-}
-
 // Helper function to print list
 private fun printList(head: Node?) {
   var current = head

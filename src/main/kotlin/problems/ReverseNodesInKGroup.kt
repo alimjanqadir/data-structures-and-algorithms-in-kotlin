@@ -98,25 +98,3 @@ private  fun linkedListToArray(head: ListNode?): IntArray {
   return result.toIntArray()
 }
 
-fun main() {
-
-  // Test case 1
-  val test1 = createLinkedList(intArrayOf(1, 2, 3, 4, 5))
-  val result1 = reverseKGroup(test1, 2)
-  println("Test 1: ${linkedListToArray(result1).joinToString()} should be [2, 1, 4, 3, 5]")
-
-  // Test case 2
-  val test2 = createLinkedList(intArrayOf(1, 2, 3, 4, 5))
-  val result2 = reverseKGroup(test2, 3)
-  println("Test 2: ${linkedListToArray(result2).joinToString()} should be [3, 2, 1, 4, 5]")
-
-  // Test case 3 (edge case: k = 1)
-  val test3 = createLinkedList(intArrayOf(1, 2, 3))
-  val result3 = reverseKGroup(test3, 1)
-  println("Test 3: ${linkedListToArray(result3).joinToString()} should be [1, 2, 3]")
-
-  // Test case 4 (edge case: single node)
-  val test4 = createLinkedList(intArrayOf(1))
-  val result4 = reverseKGroup(test4, 2)
-  println("Test 4: ${linkedListToArray(result4).joinToString()} should be [1]")
-}

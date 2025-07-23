@@ -29,33 +29,3 @@ fun containsNearbyDuplicateFunctional(nums: IntArray, k: Int): Boolean {
     }
 }
 
-fun main() {
-  println("Contains Duplicate II - Implementation Comparison")
-  println("==============================================")
-
-  val testCases = listOf(
-    intArrayOf(1, 2, 3, 1) to 3,           // true
-    intArrayOf(1, 0, 1, 1) to 1,           // true
-    intArrayOf(1, 2, 3, 1, 2, 3) to 2,     // false
-    intArrayOf(1) to 1,                     // false
-    intArrayOf(1, 1) to 0                   // false
-  )
-
-  testCases.forEachIndexed { index, (nums, k) ->
-    println("\nTest ${index + 1}: ${nums.toList()}, k = $k")
-
-    val bruteForceSolution = containsNearbyDuplicateBrute(nums, k)
-    val optimizedSolution = containsNearbyDuplicate(nums, k)
-    val functionalSolution = containsNearbyDuplicateFunctional(nums, k)
-
-    println("Brute Force: $bruteForceSolution")
-    println("Optimized:   $optimizedSolution")
-    println("Functional:  $functionalSolution")
-
-    if (bruteForceSolution == optimizedSolution && optimizedSolution == functionalSolution) {
-      println("✓ All implementations match")
-    } else {
-      println("✗ WARNING: Implementations give different results!")
-    }
-  }
-}

@@ -15,8 +15,3 @@ fun addSpaces(inputString: String, spaceIndices: IntArray): String {
   return resultBuilder.toString()
 }
 
-fun main() {
-  val inputString = "Leetcode"
-  val spaceIndices = intArrayOf(8, 13, 15)
-  println(addSpaces(inputString, spaceIndices))
-}   

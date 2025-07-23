@@ -106,19 +106,3 @@ fun Node?.toList(): List<Int> {
 }
 
 // Test cases
-fun main() {
-  // Test case 1: [1,2,3,4,5], left = 2, right = 4
-  val test1 = listOf(1, 2, 3, 4, 5).toLinkedList()
-  println("Test 1: ${reverseBetween(test1, 2, 4)?.toList()}")
-  // Expected output: [1,4,3,2,5]
-
-  // Test case 2: [5], left = 1, right = 1
-  val test2 = listOf(5).toLinkedList()
-  println("Test 2: ${reverseBetween(test2, 1, 1)?.toList()}")
-  // Expected output: [5]
-
-  // Additional test case 3: [1,2,3,4,5], left = 1, right = 5 (reverse entire list)
-  val test3 = listOf(1, 2, 3, 4, 5).toLinkedList()
-  println("Test 3: ${reverseBetween(test3, 1, 5)?.toList()}")
-  // Expected output: [5,4,3,2,1]
-}

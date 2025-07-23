@@ -1,4 +1,4 @@
-package leetcode
+package problems
 
 fun maximumGain(s: String, x: Int, y: Int): Int {
   val firstLeft: Char

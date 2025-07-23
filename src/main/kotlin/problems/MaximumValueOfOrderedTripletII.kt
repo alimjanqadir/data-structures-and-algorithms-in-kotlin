@@ -29,10 +29,3 @@ fun maximumTripletValue(nums: IntArray): Long {
   return maxResult
 }
 
-fun main() {
-  println(maximumTripletValue(intArrayOf(12, 6, 1, 2, 7))) // Output: 77
-  println(maximumTripletValue(intArrayOf(1, 10, 3, 4, 19))) // Output: 133
-  println(maximumTripletValue(intArrayOf(1, 2, 3)))       // Output: 0
-  println(maximumTripletValue(intArrayOf(10, 1, 5, 8, 2)))  // Output: (10 - 1) * 8 = 72
-  println(maximumTripletValue(intArrayOf(2, 3, 1)))       // Output: 0 
-}

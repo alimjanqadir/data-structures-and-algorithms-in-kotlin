@@ -64,11 +64,3 @@ fun distinctNamesFunctional(ideas: Array<String>): Long {
   }
 }
 
-fun main() {
-  assert(distinctNames(arrayOf("coffee", "donuts", "time", "toffee")) == 6L)
-  assert(distinctNames(arrayOf("lack", "back")) == 0L)
-  assert(distinctNames(arrayOf("apple", "banana", "cherry", "date")) == 12L)
-  assert(distinctNames(arrayOf("aa", "ab", "ac", "ad")) == 12L)
-  assert(distinctNames(arrayOf("king", "ring", "wing", "sing")) == 12L)
-  println("All test cases passed!")
-}

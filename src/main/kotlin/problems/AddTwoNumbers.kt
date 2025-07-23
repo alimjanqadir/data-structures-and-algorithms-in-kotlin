@@ -39,39 +39,3 @@ private fun addTwoNumbers(l1: ListNode?, l2: ListNode?): ListNode? {
 /**
  * Test cases to verify the solution
  */
-private fun main() {
-  // Test Case 1: Regular case
-  val test1L1 = ListNode(2).apply {
-    next = ListNode(4).apply {
-      next = ListNode(3)
-    }
-  }
-  val test1L2 = ListNode(5).apply {
-    next = ListNode(6).apply {
-      next = ListNode(4)
-    }
-  }
-
-  // Test Case 2: Different lengths
-  val test2L1 = ListNode(9).apply {
-    next = ListNode(9)
-  }
-  val test2L2 = ListNode(1)
-
-  // Helper function to print list
-  fun printList(node: ListNode?) {
-    var current = node
-    while (current != null) {
-      print("${current.`val`} ")
-      current = current.next
-    }
-    println()
-  }
-
-  println("Test Case 1:")
-  printList(addTwoNumbers(test1L1, test1L2)) // Expected: 7 0 8
-
-  println("Test Case 2:")
-  printList(addTwoNumbers(test2L1, test2L2)) // Expected: 0 0 1
-}
-

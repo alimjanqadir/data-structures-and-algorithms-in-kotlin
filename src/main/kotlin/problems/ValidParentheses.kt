@@ -57,30 +57,3 @@ fun isValidFunctional(s: String): Boolean {
   }.isEmpty()
 }
 
-fun main() {
-  // Test cases
-  val testCases = listOf(
-    "()" to true,
-    "()[]{}" to true,
-    "(]" to false,
-    "([)]" to false,
-    "{[]}" to true,
-    "]" to false,
-    "(((" to false,
-    "" to true
-  )
-
-  // Run tests and print results
-  testCases.forEachIndexed { index, (input, expected) ->
-    val actual = isValid(input)
-    val result = if (actual == expected) "PASS" else "FAIL"
-    println("Test $index: '$input' → Expected: $expected, Got: $actual - $result")
-  }
-
-  // Performance test with max length input
-  val largeInput = "(".repeat(5000) + ")".repeat(5000)
-  val start = System.nanoTime()
-  isValid(largeInput)
-  val duration = (System.nanoTime() - start) / 1_000_000.0
-  println("\nPerformance test (10000 brackets): $duration ms")
-}

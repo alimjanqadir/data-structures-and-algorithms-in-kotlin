@@ -1,6 +1,6 @@
 package problems
 
-import leetcode.maximumGain
+import problems.maximumGain
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

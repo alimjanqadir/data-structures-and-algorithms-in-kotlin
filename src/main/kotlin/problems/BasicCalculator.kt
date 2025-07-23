@@ -110,27 +110,3 @@ fun calculateFunctional(s: String): Int {
 /**
  * Test cases
  */
-fun main() {
-  val testCases = listOf(
-    "1 + 1",
-    " 2-1 + 2 ",
-    "(1+(4+5+2)-3)+(6+8)",
-    "-2 + 1",
-    "((1))",
-    "2147483647"
-  )
-
-  println("Testing iterative solution:")
-  testCases.forEach { expression ->
-    println("Expression: $expression")
-    println("Result: ${calculate(expression)}")
-    println()
-  }
-
-  println("Testing functional solution:")
-  testCases.forEach { expression ->
-    println("Expression: $expression")
-    println("Result: ${calculateFunctional(expression)}")
-    println()
-  }
-}

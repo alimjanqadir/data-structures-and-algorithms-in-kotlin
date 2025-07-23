@@ -66,59 +66,6 @@ private fun reverseRows(matrix: Array<IntArray>) {
 }
 
 
-fun main() {
-  val testCases = listOf(
-    arrayOf(
-      intArrayOf(1)
-    ),
-    arrayOf(
-      intArrayOf(1, 2),
-      intArrayOf(3, 4)
-    ),
-    arrayOf(
-      intArrayOf(5, 1, 9, 11),
-      intArrayOf(2, 4, 8, 10),
-      intArrayOf(13, 3, 6, 7),
-      intArrayOf(15, 14, 12, 16)
-    )
-  )
-
-  val expectedResults = listOf(
-    arrayOf(
-      intArrayOf(1)
-    ),
-    arrayOf(
-      intArrayOf(3, 1),
-      intArrayOf(4, 2)
-    ),
-    arrayOf(
-      intArrayOf(15, 13, 2, 5),
-      intArrayOf(14, 3, 4, 1),
-      intArrayOf(12, 6, 8, 9),
-      intArrayOf(16, 7, 10, 11)
-    )
-  )
-
-  for ((index, testCase) in testCases.withIndex()) {
-    val expected = expectedResults[index]
-
-    // Copy the test case to avoid mutation during testing
-    val matrixBruteForce = testCase.map { it.clone() }.toTypedArray()
-    val matrixOptimized = testCase.map { it.clone() }.toTypedArray()
-    val matrixFunctional = testCase.map { it.clone() }.toTypedArray()
-
-    rotate(matrixBruteForce)
-    rotateBruteForce(matrixBruteForce)
-    rotateFunctional(matrixFunctional)
-
-    assert(matrixEquals(matrixBruteForce, expected)) { "Brute Force Solution Failed on Test Case $index" }
-    assert(matrixEquals(matrixOptimized, expected)) { "Optimized Solution Failed on Test Case $index" }
-    assert(matrixEquals(matrixFunctional, expected)) { "Functional Solution Failed on Test Case $index" }
-  }
-
-  println("All test cases passed.")
-}
-
 fun matrixEquals(a: Array<IntArray>, b: Array<IntArray>): Boolean {
   if (a.size != b.size) return false
   for (i in a.indices) {

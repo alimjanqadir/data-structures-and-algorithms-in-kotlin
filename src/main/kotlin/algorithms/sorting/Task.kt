@@ -3,38 +3,6 @@ package algorithms.sorting
 import algorithms.numberList
 import java.math.BigDecimal
 
-fun main(args: Array<String>) {
-  // Start time
-  val bucketSortStartTimeMills = System.currentTimeMillis()
-  bucketSort()
-  // The time offset
-  val bucketSortPerformance: Float = (System.currentTimeMillis() - bucketSortStartTimeMills).toFloat()
-  println("Bucket sort performance is: ${bucketSortPerformance / 1000}")
-
-  // Start time
-  val bubbleSortStartTimeMills = System.currentTimeMillis()
-  bubbleSort()
-  // The time offset
-  val bubbleSortPerformance: BigDecimal = (System.currentTimeMillis() - bubbleSortStartTimeMills).toBigDecimal()
-  println("Bubble sort performance is: ${bubbleSortPerformance.div(1000.toBigDecimal())}")
-
-  // Start time
-  val quickSortStartTimeMills = System.currentTimeMillis()
-  val left = 0
-  val right = numberList.size - 1
-  val unSortedList = numberList.toMutableList()
-  quickSort(unSortedList, left, right)
-  for ((i, _) in unSortedList.withIndex()) {
-    if (i != unSortedList.size - 1 && unSortedList[i] == unSortedList[i + 1]) continue
-    print(" ${unSortedList[i]}")
-  }
-  print("\n")
-  // The time offset
-  val quickSortPerformance: BigDecimal = (System.currentTimeMillis() - quickSortStartTimeMills).toBigDecimal()
-  println("Quick sort performance is: ${quickSortPerformance.div(1000.toBigDecimal())}")
-
-}
-
 private fun bubbleSort() {
   val sortedList: MutableList<Int> = numberList.toMutableList()
   // Sort the array

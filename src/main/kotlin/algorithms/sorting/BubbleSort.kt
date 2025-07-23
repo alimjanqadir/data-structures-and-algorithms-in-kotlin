@@ -3,11 +3,6 @@ package algorithms.sorting
 import algorithms.Person
 import algorithms.peopleList
 
-fun main(args: Array<String>) {
-  val sortedList = bubbleSort(unsortedList = peopleList)
-  println(sortedList)
-}
-
 fun bubbleSort(unsortedList: List<Person>): List<Person> {
   val sortList: MutableList<Person> = unsortedList.toMutableList()
 

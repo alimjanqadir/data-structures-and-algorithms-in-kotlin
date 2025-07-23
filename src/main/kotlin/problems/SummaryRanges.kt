@@ -101,38 +101,3 @@ private fun formatRange(start: Int, end: Int): String {
 /**
  * Main function to demonstrate and test different implementations
  */
-fun main() {
-  // Test cases
-  val testCases = listOf(
-    intArrayOf(0, 1, 2, 4, 5, 7),
-    intArrayOf(0, 2, 3, 4, 6, 8, 9),
-    intArrayOf(),
-    intArrayOf(1),
-    intArrayOf(1, 2, 3, 4, 5),
-    intArrayOf(1, 3, 5, 7, 9)
-  )
-
-  // Test names
-  val testNames = listOf(
-    "Mixed ranges",
-    "Non-consecutive at start",
-    "Empty array",
-    "Single element",
-    "All consecutive",
-    "No consecutive numbers"
-  )
-
-  // Run tests for each implementation
-  println("Testing different implementations:\n")
-
-  testCases.forEachIndexed { index, numbers ->
-    println("Test Case ${index + 1}: ${testNames[index]}")
-    println("Input: ${if (numbers.isEmpty()) "[]" else numbers.joinToString()}")
-
-    println("Brute Force Output: ${summaryRangesBruteForce(numbers)}")
-    println("Optimized Output: ${summaryRanges(numbers)}")
-    println("Functional Output: ${summaryRangesFunctional(numbers)}")
-
-    println("-".repeat(50))
-  }
-}

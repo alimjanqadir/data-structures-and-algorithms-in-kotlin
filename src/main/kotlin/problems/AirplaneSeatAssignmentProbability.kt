@@ -4,16 +4,6 @@ fun nthPersonGetsNthSeat(n: Int): Double {
   return if (n == 1) 1.0 else 0.5
 }
 
-fun main() {
-  val n = 10
-  // Test assertions
-  assert(nthPersonGetsNthSeat(1) == 1.0) { "Test failed for n = 1" }
-  assert(nthPersonGetsNthSeat(2) == 0.5) { "Test failed for n = 2" }
-  assert(nthPersonGetsNthSeat(10) == 0.5) { "Test failed for n = 10" }
-  assert(nthPersonGetsNthSeat(100) == 0.5) { "Test failed for n = 100" }
-  println("All tests passed.")
-}
-
 /**
  * Explanation:
  * The problem is about finding the probability that the nth person will sit in their assigned seat.

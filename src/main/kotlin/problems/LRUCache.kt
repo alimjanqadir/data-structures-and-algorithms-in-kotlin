@@ -81,15 +81,3 @@ class LRUCache(private val capacity: Int) {
  * var param_1 = obj.get(key)
  * obj.put(key,value)
  */
-fun main() {
-  val lRUCache = LRUCache(2)
-  lRUCache.put(1, 1)    // cache is {1=1}
-  lRUCache.put(2, 2)    // cache is {1=1, 2=2}
-  println(lRUCache.get(1))       // returns 1
-  lRUCache.put(3, 3)    // LRU key was 2, evicts key 2, cache is {1=1, 3=3}
-  println(lRUCache.get(2))       // returns -1 (not found)
-  lRUCache.put(4, 4)    // LRU key was 1, evicts key 1, cache is {4=4, 3=3}
-  println(lRUCache.get(1))       // returns -1 (not found)
-  println(lRUCache.get(3))       // returns 3
-  println(lRUCache.get(4))       // returns 4
-}
