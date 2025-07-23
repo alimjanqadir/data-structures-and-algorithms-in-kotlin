@@ -85,24 +85,3 @@ fun wordPatternFunctional(pattern: String, s: String): Boolean {
   }
 }
 
-fun main() {
-  // Test cases for Brute Force Solution
-  assert(wordPatternBruteForce("abba", "dog cat cat dog")) // Should return true
-  assert(!wordPatternBruteForce("abba", "dog cat cat fish")) // Should return false
-  assert(!wordPatternBruteForce("aaaa", "dog cat cat dog")) // Should return false
-  assert(!wordPatternBruteForce("abba", "dog dog dog dog")) // Should return false
-
-  // Test cases for Optimized Solution
-  assert(wordPatternOptimized("abba", "dog cat cat dog")) // Should return true
-  assert(!wordPatternOptimized("abba", "dog cat cat fish")) // Should return false
-  assert(!wordPatternOptimized("aaaa", "dog cat cat dog")) // Should return false
-  assert(!wordPatternOptimized("abba", "dog dog dog dog")) // Should return false
-
-  // Test cases for Functional Composition Solution
-  assert(wordPatternFunctional("abba", "dog cat cat dog")) // Should return true
-  assert(!wordPatternFunctional("abba", "dog cat cat fish")) // Should return false
-  assert(!wordPatternFunctional("aaaa", "dog cat cat dog")) // Should return false
-  assert(!wordPatternFunctional("abba", "dog dog dog dog")) // Should return false
-
-  println("All tests passed!") // Confirmation message
-}

@@ -153,28 +153,3 @@ class BookMyShow(private val n: Int, private val m: Int) {
   }
 }
 
-fun main() {
-  // Original test case
-  val bms1 = BookMyShow(2, 5)
-  assert(bms1.gather(4, 0).contentEquals(intArrayOf(0, 0)))
-  assert(bms1.gather(2, 0).isEmpty())
-  assert(bms1.scatter(5, 1))
-  assert(!bms1.scatter(5, 1))
-  println("Test case 1 passed.")
-
-  // Test case that previously failed
-  val bms2 = BookMyShow(2, 7)
-  assert(bms2.gather(8, 0).isEmpty())
-  assert(bms2.scatter(10, 1))
-  println("Test case 2 passed.")
-
-  // Additional test case
-  val bms3 = BookMyShow(3, 4)
-  assert(bms3.gather(3, 2).contentEquals(intArrayOf(0, 0)))
-  assert(bms3.scatter(5, 2))
-  assert(bms3.gather(4, 2).contentEquals(intArrayOf(1, 0)))
-  assert(bms3.gather(2, 2).isEmpty())
-  assert(bms3.scatter(4, 2))
-  assert(!bms3.scatter(5, 2))
-  println("Test case 3 passed.")
-}

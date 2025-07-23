@@ -60,35 +60,3 @@ private fun isSymmetricIterative(root: TreeNode?): Boolean {
 }
 
 // Test cases
-fun main() {
-  // Test Case 1: Symmetric tree [1,2,2,3,4,4,3]
-  val root1 = TreeNode(1).apply {
-    left = TreeNode(2).apply {
-      left = TreeNode(3)
-      right = TreeNode(4)
-    }
-    right = TreeNode(2).apply {
-      left = TreeNode(4)
-      right = TreeNode(3)
-    }
-  }
-  println("Test Case 1 Recursive: ${isSymmetric(root1)}") // Should print true
-  println("Test Case 1 Iterative: ${isSymmetricIterative(root1)}") // Should print true
-
-  // Test Case 2: Asymmetric tree [1,2,2,null,3,null,3]
-  val root2 = TreeNode(1).apply {
-    left = TreeNode(2).apply {
-      right = TreeNode(3)
-    }
-    right = TreeNode(2).apply {
-      right = TreeNode(3)
-    }
-  }
-  println("Test Case 2 Recursive: ${isSymmetric(root2)}") // Should print false
-  println("Test Case 2 Iterative: ${isSymmetricIterative(root2)}") // Should print false
-
-  // Test Case 3: Single node
-  val root3 = TreeNode(1)
-  println("Test Case 3 Recursive: ${isSymmetric(root3)}") // Should print true
-  println("Test Case 3 Iterative: ${isSymmetricIterative(root3)}") // Should print true
-}

@@ -79,33 +79,3 @@ fun maxAreaFunctional(height: IntArray): Int {
   return computeMaxArea(0, height.lastIndex, 0)
 }
 
-fun main() {
-  // List of test cases
-  val testCases = listOf(
-    intArrayOf(1, 8, 6, 2, 5, 4, 8, 3, 7) to 49,
-    intArrayOf(1, 1) to 1,
-    intArrayOf(4, 3, 2, 1, 4) to 16,
-    intArrayOf(1, 2, 1) to 2,
-    intArrayOf(2, 3, 4, 5, 18, 17, 6) to 17,
-    IntArray(100000) { 10000 } to 999990000
-  )
-
-  // List of functions to test
-  val functions = listOf(
-    ::maxAreaBruteForce,
-    ::maxAreaOptimized,
-    ::maxAreaFunctional
-  )
-
-  // Run test cases for each function
-  for ((index, function) in functions.withIndex()) {
-    println("Testing function ${index + 1}")
-    for ((input, expected) in testCases) {
-      val output = function(input)
-      assert(output == expected) {
-        "Test failed for input ${input.joinToString(limit = 10)}: Expected $expected, got $output"
-      }
-    }
-    println("All tests passed for function ${index + 1}\n")
-  }
-}

@@ -54,13 +54,6 @@ class SeatManagerFunctional(n: Int) {
   }
 }
 
-fun main() {
-  testBruteForce()
-  testEfficient()
-  testFunctional()
-  println("All tests passed.")
-}
-
 fun testBruteForce() {
   val manager = SeatManagerBruteForce(5)
   assert(manager.reserve() == 1)

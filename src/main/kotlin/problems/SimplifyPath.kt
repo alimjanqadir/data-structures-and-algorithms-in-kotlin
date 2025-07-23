@@ -52,20 +52,3 @@ fun List<String>.processPathComponent(component: String): List<String> =
     else -> this + component
   }
 
-fun main() {
-  // Test cases with detailed output
-  listOf(
-    "/home/",
-    "/home//foo/",
-    "/home/user/Documents/../Pictures",
-    "/../",
-    "/.../a/../b/c/../d/./",
-    "/a/./b/../../c/"
-  ).forEach { test ->
-    println("""
-            |Input: $test
-            |Output: ${simplifyPath(test)}
-            |---
-    """.trimMargin())
-  }
-}

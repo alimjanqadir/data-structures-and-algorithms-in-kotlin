@@ -51,34 +51,6 @@ private fun invertTreeIterative(root: TreeNode?): TreeNode? {
 /**
  * Example usage and test cases
  */
-fun main() {
-  // Test case 1: [4,2,7,1,3,6,9]
-  val root1 = TreeNode(4).apply {
-    left = TreeNode(2).apply {
-      left = TreeNode(1)
-      right = TreeNode(3)
-    }
-    right = TreeNode(7).apply {
-      left = TreeNode(6)
-      right = TreeNode(9)
-    }
-  }
-
-  println("Original tree: ${printTree(root1)}")
-  val inverted1 = invertTree(root1)
-  println("Inverted tree: ${printTree(inverted1)}")
-
-  // Test case 2: [2,1,3]
-  val root2 = TreeNode(2).apply {
-    left = TreeNode(1)
-    right = TreeNode(3)
-  }
-
-  println("\nOriginal tree: ${printTree(root2)}")
-  val inverted2 = invertTreeIterative(root2)
-  println("Inverted tree: ${printTree(inverted2)}")
-}
-
 /**
  * Helper function to print the tree level by level
  */

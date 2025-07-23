@@ -65,30 +65,3 @@ fun minimumSum(n: Int, k: Int): Int {
 }
 
 // Example Usage:
-fun main() {
-  // Example 1: n = 5, k = 4
-  // midpoint = 4 / 2 = 2
-  // count1 = min(5, 2) = 2. Numbers: 1, 2. Sum1 = 2*(2+1)/2 = 3.
-  // remainingCount = 5 - 2 = 3.
-  // Need 3 more numbers starting from k=4. Numbers: 4, 5, 6.
-  // Sum2 = 3 * (4 + 6) / 2 = 3 * 10 / 2 = 15.
-  // Total Sum = 3 + 15 = 18.
-  println("n=5, k=4 -> ${minimumSum(5, 4)}") // Output: 18
-
-  // Example 2: n = 2, k = 6
-  // midpoint = 6 / 2 = 3
-  // count1 = min(2, 3) = 2. Numbers: 1, 2. Sum1 = 2*(2+1)/2 = 3.
-  // remainingCount = 2 - 2 = 0.
-  // Need 0 more numbers. Sum2 = 0.
-  // Total Sum = 3 + 0 = 3.
-  println("n=2, k=6 -> ${minimumSum(2, 6)}") // Output: 3
-
-  // Additional Test Case: n = 10, k = 10
-  // midpoint = 10 / 2 = 5
-  // count1 = min(10, 5) = 5. Numbers: 1, 2, 3, 4, 5. Sum1 = 5*(5+1)/2 = 15.
-  // remainingCount = 10 - 5 = 5.
-  // Need 5 more numbers starting from k=10. Numbers: 10, 11, 12, 13, 14.
-  // Sum2 = 5 * (10 + 14) / 2 = 5 * 24 / 2 = 60.
-  // Total Sum = 15 + 60 = 75.
-  println("n=10, k=10 -> ${minimumSum(10, 10)}") // Output: 75
-}

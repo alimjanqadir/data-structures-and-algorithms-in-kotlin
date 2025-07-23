@@ -33,8 +33,3 @@ fun russianRecursive(a: Int, b: Int): Int {
 }
 
 
-fun main() {
-  println(naive(11, 2))
-  println(russian(11, 2))
-  println(russianRecursive(11, 2))
-}

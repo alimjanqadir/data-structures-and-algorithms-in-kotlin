@@ -2,11 +2,6 @@ package algorithms.sorting
 
 import algorithms.numberList
 
-fun main(args: Array<String>) {
-  val sortedList = bucketSort(unsortedList = numberList)
-  print(sortedList)
-}
-
 fun bucketSort(unsortedList: List<Int>): List<Int> {
   val sortList = mutableListOf<Int>()
   // Initialize the sort list

@@ -67,22 +67,3 @@ fun rotateCounterClockwise(matrix: List<List<Int>>): List<List<Int>> {
   return rotated
 }
 
-fun main() {
-  val testCases = listOf(
-    listOf(listOf(1)) to listOf(1),
-    listOf(listOf(1, 2, 3)) to listOf(1, 2, 3),
-    listOf(listOf(1), listOf(2), listOf(3)) to listOf(1, 2, 3),
-    listOf(listOf(1, 2), listOf(3, 4)) to listOf(1, 2, 4, 3),
-    listOf(listOf(1, 2, 3), listOf(4, 5, 6), listOf(7, 8, 9)) to listOf(1, 2, 3, 6, 9, 8, 7, 4, 5),
-    listOf(listOf(1, 2, 3, 4), listOf(5, 6, 7, 8), listOf(9, 10, 11, 12)) to listOf(1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7)
-  )
-
-  for ((input, expected) in testCases) {
-    val outputBruteForce = spiralOrder(input)
-    val outputFunctional = spiralOrderFunctional(input)
-
-    assert(outputBruteForce == expected) { "Brute Force Failed on input $input" }
-    assert(outputFunctional == expected) { "Functional Failed on input $input" }
-  }
-  println("All tests passed.")
-}

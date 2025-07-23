@@ -89,38 +89,3 @@ class ThreeSumFunctional {
 }
 
 
-fun main() {
-  val solution = ThreeSumEfficient()
-
-  // Test case 1
-  val nums1 = intArrayOf(-1, 0, 1, 2, -1, -4)
-  val expected1 = setOf(listOf(-1, -1, 2), listOf(-1, 0, 1))
-  assert(solution.threeSum(nums1).toSet() == expected1) { "Test case 1 failed" }
-
-  // Test case 2
-  val nums2 = intArrayOf()
-  val expected2 = emptySet<List<Int>>()
-  assert(solution.threeSum(nums2).toSet() == expected2) { "Test case 2 failed" }
-
-  // Test case 3
-  val nums3 = intArrayOf(0)
-  val expected3 = emptySet<List<Int>>()
-  assert(solution.threeSum(nums3).toSet() == expected3) { "Test case 3 failed" }
-
-  // Test case 4 (All zeros)
-  val nums4 = intArrayOf(0, 0, 0, 0)
-  val expected4 = setOf(listOf(0, 0, 0))
-  assert(solution.threeSum(nums4).toSet() == expected4) { "Test case 4 failed" }
-
-  // Test case 5 (No triplet sums to zero)
-  val nums5 = intArrayOf(1, 2, 3, 4, 5)
-  val expected5 = emptySet<List<Int>>()
-  assert(solution.threeSum(nums5).toSet() == expected5) { "Test case 5 failed" }
-
-  // Test case 6 (Multiple duplicates)
-  val nums6 = intArrayOf(-2, -2, 0, 0, 2, 2)
-  val expected6 = setOf(listOf(-2, 0, 2))
-  assert(solution.threeSum(nums6).toSet() == expected6) { "Test case 6 failed" }
-
-  println("All enhanced functional solution test cases passed.")
-}

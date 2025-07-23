@@ -43,31 +43,3 @@ private fun inorderTraverse(node: TreeNode?, k: Int): Boolean {
 /**
  * Test cases to verify the solution
  */
-fun main() {
-  // Test Case 1: Example from problem statement
-  val root1 = TreeNode(3).apply {
-    left = TreeNode(1).apply {
-      right = TreeNode(2)
-    }
-    right = TreeNode(4)
-  }
-  assert(kthSmallest(root1, 1) == 1) { "Test case 1 failed" }
-
-  // Test Case 2: Second example from problem statement
-  val root2 = TreeNode(5).apply {
-    left = TreeNode(3).apply {
-      left = TreeNode(2).apply {
-        left = TreeNode(1)
-      }
-      right = TreeNode(4)
-    }
-    right = TreeNode(6)
-  }
-  assert(kthSmallest(root2, 3) == 3) { "Test case 2 failed" }
-
-  // Test Case 3: Single node
-  val root3 = TreeNode(1)
-  assert(kthSmallest(root3, 1) == 1) { "Test case 3 failed" }
-
-  println("All test cases passed!")
-}

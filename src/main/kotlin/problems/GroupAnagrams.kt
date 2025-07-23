@@ -75,31 +75,3 @@ private fun generateKeyFunctional(input: String): String =
     .sortedBy { it.key }
     .joinToString("") { "${it.key}${it.value}" }
 
-fun main() {
-  // Test 1: Normal case
-  val result1 = groupAnagrams(arrayOf("eat", "tea", "tan", "ate", "nat", "bat"))
-  assert(result1.size == 3) { "Test 1 failed: Expected 3 groups, but got ${result1.size}" }
-  assert(result1.any { it.containsAll(listOf("eat", "tea", "ate")) }) { "Test 1 failed: Missing group [eat, tea, ate]" }
-  assert(result1.any { it.containsAll(listOf("tan", "nat")) }) { "Test 1 failed: Missing group [tan, nat]" }
-  assert(result1.any { it == listOf("bat") }) { "Test 1 failed: Missing group [bat]" }
-
-  // Test 2: Empty string
-  val result2 = groupAnagrams(arrayOf(""))
-  assert(result2 == listOf(listOf(""))) { "Test 2 failed: Expected [['']], but got $result2" }
-
-  // Test 3: Single character
-  val result3 = groupAnagrams(arrayOf("a"))
-  assert(result3 == listOf(listOf("a"))) { "Test 3 failed: Expected [['a']], but got $result3" }
-
-  // Test 4: All unique strings
-  val result4 = groupAnagrams(arrayOf("abc", "def", "ghi"))
-  assert(result4.size == 3) { "Test 4 failed: Expected 3 groups, but got ${result4.size}" }
-  assert(result4.all { it.size == 1 }) { "Test 4 failed: Each group should contain exactly one string" }
-
-  // Test 5: All anagrams
-  val result5 = groupAnagrams(arrayOf("abc", "bca", "cab"))
-  assert(result5.size == 1) { "Test 5 failed: Expected 1 group, but got ${result5.size}" }
-  assert(result5[0].containsAll(listOf("abc", "bca", "cab"))) { "Test 5 failed: Group should contain all three strings" }
-
-  println("All tests passed successfully!")
-}

@@ -149,34 +149,3 @@ fun isIsomorphicFast(s: String, t: String): Boolean {
 /**
  * Main function to execute test assertions for the isomorphic strings solutions.
  */
-fun main() {
-  // Given: A list of test cases with pairs of strings and their expected isomorphism result
-  val testCases = listOf(
-    Triple("egg", "add", true),
-    Triple("foo", "bar", false),
-    Triple("paper", "title", true),
-    Triple("ab", "aa", false),
-    Triple("", "", true),
-    Triple("a", "a", true),
-    Triple("abc", "def", true),
-    Triple("abc", "dee", false)
-  )
-
-  // When & Then: Iterate through each test case and assert the expected outcomes
-  for ((s, t, expected) in testCases) {
-    // Assert the Optimized Solution
-    assert(isIsomorphicBruteForce(s, t) == expected) {
-      "Optimized: Failed for input s='$s', t='$t'. Expected $expected."
-    }
-
-    // Assert the Functional Composition Solution
-    assert(isIsomorphicFunctional(s, t) == expected) {
-      "Functional: Failed for input s='$s', t='$t'. Expected $expected."
-    }
-
-    // Note: Brute force solution is omitted from testing due to its inefficiency
-  }
-
-  // If all assertions pass, print a success message
-  println("All tests passed successfully.")
-}

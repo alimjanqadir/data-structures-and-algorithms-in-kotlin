@@ -95,12 +95,3 @@ fun takeCharactersBruteForce(s: String, k: Int): Int {
   return if (minLength == Int.MAX_VALUE) -1 else minLength
 }
 
-fun main() {
-  assert(takeCharacters("aabaaaacaabc", 2) == 8)
-  assert(takeCharacters("abcabc", 2) == 6)
-  assert(takeCharacters("abc", 1) == 3)
-  assert(takeCharacters("a", 1) == -1)
-  assert(takeCharacters("aaabbbccc", 2) == 6)
-  assert(takeCharacters("abaccc", 2) == -1)
-  println("All test cases passed.")
-}

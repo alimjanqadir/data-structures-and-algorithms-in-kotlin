@@ -2,15 +2,6 @@ package problems
 
 import kotlin.math.abs
 
-fun main(args: Array<String>) {
-  val arrayA = arrayOf(7, 4, 1, 10)
-  val arrayB = arrayOf(4, 5, 8, 7)
-  val target = 19
-
-  val closestPair = closestSumPairs(arrayA, arrayB, target)
-  println(closestPair)
-}
-
 @Suppress("SameParameterValue")
 private fun closestSumPairs(arrayA: Array<Int>, arrayB: Array<Int>, target: Int): Pair<Int, Int> {
   if (target == 0)

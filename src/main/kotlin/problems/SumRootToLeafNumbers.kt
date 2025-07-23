@@ -44,37 +44,3 @@ private fun dfs(node: TreeNode?, currentSum: Int): Int {
 /**
  * Test cases to verify the solution
  */
-fun main() {
-  // Test Case 1: [1,2,3]
-  val root1 = TreeNode(1).apply {
-    left = TreeNode(2)
-    right = TreeNode(3)
-  }
-  println("Test Case 1: ${sumNumbers(root1)} (Expected: 25)")
-
-  // Test Case 2: [4,9,0,5,1]
-  val root2 = TreeNode(4).apply {
-    left = TreeNode(9).apply {
-      left = TreeNode(5)
-      right = TreeNode(1)
-    }
-    right = TreeNode(0)
-  }
-  println("Test Case 2: ${sumNumbers(root2)} (Expected: 1026)")
-
-  // Test Case 3: Single node [5]
-  val root3 = TreeNode(5)
-  println("Test Case 3: ${sumNumbers(root3)} (Expected: 5)")
-
-  // Test Case 4: Deep path [1,2,3,4,5]
-  val root4 = TreeNode(1).apply {
-    left = TreeNode(2).apply {
-      left = TreeNode(3).apply {
-        left = TreeNode(4).apply {
-          left = TreeNode(5)
-        }
-      }
-    }
-  }
-  println("Test Case 4: ${sumNumbers(root4)} (Expected: 12345)")
-}

@@ -50,27 +50,3 @@ fun minRefuelStopsFunctional(target: Int, startFuel: Int, stations: Array<IntArr
   return helper(0, startFuel, 0, 0, PriorityQueue(compareByDescending { it }))
 }
 
-fun main() {
-  // Test Case 1
-  val target1 = 100
-  val startFuel1 = 10
-  val stations1 = arrayOf(intArrayOf(10, 60), intArrayOf(20, 30), intArrayOf(30, 30), intArrayOf(60, 40))
-  assert(minRefuelStopsGreedy(target1, startFuel1, stations1) == 2)
-  assert(minRefuelStopsFunctional(target1, startFuel1, stations1) == 2)
-
-  // Test Case 2
-  val target2 = 1
-  val startFuel2 = 1
-  val stations2 = arrayOf<IntArray>()
-  assert(minRefuelStopsGreedy(target2, startFuel2, stations2) == 0)
-  assert(minRefuelStopsFunctional(target2, startFuel2, stations2) == 0)
-
-  // Test Case 3
-  val target3 = 100
-  val startFuel3 = 1
-  val stations3 = arrayOf(intArrayOf(10, 100))
-  assert(minRefuelStopsGreedy(target3, startFuel3, stations3) == -1)
-  assert(minRefuelStopsFunctional(target3, startFuel3, stations3) == -1)
-
-  println("All test cases passed!")
-}

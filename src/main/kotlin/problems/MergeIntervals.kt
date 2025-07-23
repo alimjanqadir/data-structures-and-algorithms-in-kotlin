@@ -75,37 +75,3 @@ private fun mergeIntervalsFunctional(intervals: Array<IntArray>): Array<IntArray
 }
 
 // Test cases
-fun main() {
-  val testCases = listOf(
-    arrayOf(
-      intArrayOf(1, 3),
-      intArrayOf(2, 6),
-      intArrayOf(8, 10),
-      intArrayOf(15, 18)
-    ),
-    arrayOf(intArrayOf(1, 4), intArrayOf(4, 5)),
-    arrayOf(intArrayOf(1, 2)),
-    arrayOf(intArrayOf(1, 5), intArrayOf(2, 3))
-  )
-
-  for ((index, intervals) in testCases.withIndex()) {
-    println("Test case ${index + 1}:")
-    println("Input: ${intervals.contentDeepToString()}")
-
-    val resultOriginal = mergeIntervals(intervals)
-    val resultOptimized = mergeIntervals(intervals)
-    val resultFunctional = mergeIntervalsFunctional(intervals)
-
-    println("Original solution: ${resultOriginal.contentDeepToString()}")
-    println("Optimized solution: ${resultOptimized.contentDeepToString()}")
-    println("Functional solution: ${resultFunctional.contentDeepToString()}")
-
-    assert(resultOriginal.contentDeepEquals(resultOptimized)) { "Original and Optimized solutions differ for test case ${index + 1}" }
-    assert(resultOriginal.contentDeepEquals(resultFunctional)) { "Original and Functional solutions differ for test case ${index + 1}" }
-
-    println("All solutions match for test case ${index + 1}")
-    println()
-  }
-
-  println("All tests passed!")
-}

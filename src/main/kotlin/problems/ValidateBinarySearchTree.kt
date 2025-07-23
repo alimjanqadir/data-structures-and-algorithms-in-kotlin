@@ -39,34 +39,3 @@ private fun isValidBSTInRange(node: TreeNode?, minValue: Long, maxValue: Long): 
 /**
  * Test cases to verify the solution
  */
-fun main() {
-  // Test Case 1: Valid BST from Example 1
-  val test1 = TreeNode(2).apply {
-    left = TreeNode(1)
-    right = TreeNode(3)
-  }
-  println("Test 1 (Expected: true): ${isValidBST(test1)}")
-
-  // Test Case 2: Invalid BST from Example 2
-  val test2 = TreeNode(5).apply {
-    left = TreeNode(1)
-    right = TreeNode(4).apply {
-      left = TreeNode(3)
-      right = TreeNode(6)
-    }
-  }
-  println("Test 2 (Expected: false): ${isValidBST(test2)}")
-
-  // Test Case 3: Edge case with integer boundaries
-  val test3 = TreeNode(Int.MAX_VALUE)
-  println("Test 3 (Expected: true): ${isValidBST(test3)}")
-
-  // Test Case 4: Single value repeated (invalid BST)
-  val test4 = TreeNode(1).apply {
-    left = TreeNode(1)
-  }
-  println("Test 4 (Expected: false): ${isValidBST(test4)}")
-
-  // Test Case 5: Null tree (valid BST)
-  println("Test 5 (Expected: true): ${isValidBST(null)}")
-}

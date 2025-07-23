@@ -31,13 +31,3 @@ fun isAnagramFunctional(s: String, t: String): Boolean {
   return countChars(s) == countChars(t)
 }
 
-fun main() {
-  assert(isAnagram("anagram", "nagaram"))
-  assert(!isAnagram("rat", "car"))
-  assert(isAnagram("", ""))
-  assert(isAnagram("a", "a"))
-  assert(isAnagram("aab", "aba"))
-  assert(!isAnagram("aab", "abc"))
-  assert(!isAnagram("hello", "world"))
-  println("All tests passed!")
-}

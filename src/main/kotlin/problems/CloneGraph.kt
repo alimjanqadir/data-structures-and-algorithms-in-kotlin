@@ -25,20 +25,3 @@ private fun dfs(node: Node, visited: MutableMap<Node, Node>): Node {
   }
 }
 
-fun main() {
-  // Test case from problem
-  val node1 = Node(1)
-  val node2 = Node(2)
-  val node3 = Node(3)
-  val node4 = Node(4)
-
-  node1.neighbors = mutableListOf(node2, node4)
-  node2.neighbors = mutableListOf(node1, node3)
-  node3.neighbors = mutableListOf(node2, node4)
-  node4.neighbors = mutableListOf(node1, node3)
-
-  val cloned = cloneGraph(node1)
-  println("Original node: ${node1.`val`}")
-  println("Cloned node: ${cloned?.`val`}")
-  println("Neighbors match: ${node1.neighbors.map { it.`val` } == cloned?.neighbors?.map { it.`val` }}")
-}

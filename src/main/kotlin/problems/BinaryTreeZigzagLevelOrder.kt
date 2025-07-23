@@ -45,32 +45,3 @@ private fun zigzagLevelOrder(root: TreeNode?): List<List<Int>> {
 /**
  * Test cases
  */
-fun main() {
-  val test1 = TreeNode(3).apply {
-    left = TreeNode(9)
-    right = TreeNode(20).apply {
-      left = TreeNode(15)
-      right = TreeNode(7)
-    }
-  }
-
-  val test2 = TreeNode(1)
-
-  val test3 = null
-
-  val test4 = TreeNode(1).apply {
-    left = TreeNode(2).apply {
-      left = TreeNode(4)
-    }
-    right = TreeNode(3).apply {
-      right = TreeNode(5)
-    }
-  }
-
-  val testCases = listOf(test1, test2, test3, test4)
-
-  testCases.forEachIndexed { index, root ->
-    val result = zigzagLevelOrder(root)
-    println("Test case ${index + 1}: $result")
-  }
-}

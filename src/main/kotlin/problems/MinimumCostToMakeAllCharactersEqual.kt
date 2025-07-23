@@ -44,22 +44,3 @@ fun minimumCost(s: String): Long {
 }
 
 // Example Usage:
-fun main() {
-  val s1 = "0011"
-  println("Input: \"$s1\", Output: ${minimumCost(s1)}") // Output: 2
-
-  val s2 = "010101"
-  println("Input: \"$s2\", Output: ${minimumCost(s2)}") // Output: 9
-
-  val s3 = "1111"
-  println("Input: \"$s3\", Output: ${minimumCost(s3)}") // Output: 0
-
-  val s4 = "00010"
-  println("Input: \"$s4\", Output: ${minimumCost(s4)}") // Output: 3
-
-  val s5 = "1010"
-  println("Input: \"$s5\", Output: ${minimumCost(s5)}") // Output: 4
-
-  val s6 = "111000"
-  println("Input: \"$s6\", Output: ${minimumCost(s6)}") // Output: 3
-}

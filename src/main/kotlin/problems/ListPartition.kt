@@ -48,25 +48,6 @@ fun partition(head: ListNode?, x: Int): ListNode? {
 /**
  * Test cases
  */
-fun main() {
-  // Test Case 1: [1,4,3,2,5,2], x = 3
-  val test1 = createLinkedList(listOf(1, 4, 3, 2, 5, 2))
-  println("Test 1 Input: ${printList(test1)}")
-  val result1 = partition(test1, 3)
-  println("Test 1 Output: ${printList(result1)}")
-
-  // Test Case 2: [2,1], x = 2
-  val test2 = createLinkedList(listOf(2, 1))
-  println("Test 2 Input: ${printList(test2)}")
-  val result2 = partition(test2, 2)
-  println("Test 2 Output: ${printList(result2)}")
-
-  // Test Case 3: Empty list
-  println("Test 3 Input: empty list")
-  val result3 = partition(null, 1)
-  println("Test 3 Output: ${printList(result3)}")
-}
-
 // Helper function to create a linked list from a list of integers
 fun createLinkedList(values: List<Int>): ListNode? {
   if (values.isEmpty()) return null

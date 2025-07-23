@@ -59,24 +59,3 @@ fun ListNode?.toList(): List<Int> {
 }
 
 // Test cases
-fun main() {
-  // Test case 1: [1,2,3,4,5], k = 2
-  val test1 = listOf(1, 2, 3, 4, 5).toLinkedList()
-  println("Test 1: ${rotateRight(test1, 2)?.toList()} == [4,5,1,2,3]")
-
-  // Test case 2: [0,1,2], k = 4
-  val test2 = listOf(0, 1, 2).toLinkedList()
-  println("Test 2: ${rotateRight(test2, 4)?.toList()} == [2,0,1]")
-
-  // Test case 3: Empty list
-  val test3 = listOf<Int>().toLinkedList()
-  println("Test 3: ${rotateRight(test3, 1)?.toList()} == []")
-
-  // Test case 4: Single node
-  val test4 = listOf(1).toLinkedList()
-  println("Test 4: ${rotateRight(test4, 1)?.toList()} == [1]")
-
-  // Test case 5: k = 0
-  val test5 = listOf(1, 2, 3).toLinkedList()
-  println("Test 5: ${rotateRight(test5, 0)?.toList()} == [1,2,3]")
-}

@@ -48,38 +48,3 @@ private fun getRightHeight(node: TreeNode?): Int {
 /**
  * Test cases
  */
-fun main() {
-  // Test Case 1: Perfect binary tree
-  val test1 = TreeNode(1).apply {
-    left = TreeNode(2).apply {
-      left = TreeNode(4)
-      right = TreeNode(5)
-    }
-    right = TreeNode(3).apply {
-      left = TreeNode(6)
-      right = TreeNode(7)
-    }
-  }
-  assert(countNodes(test1) == 7) { "Test case 1 failed" }
-
-  // Test Case 2: Complete but not perfect
-  val test2 = TreeNode(1).apply {
-    left = TreeNode(2).apply {
-      left = TreeNode(4)
-      right = TreeNode(5)
-    }
-    right = TreeNode(3).apply {
-      left = TreeNode(6)
-    }
-  }
-  assert(countNodes(test2) == 6) { "Test case 2 failed" }
-
-  // Test Case 3: Single node
-  val test3 = TreeNode(1)
-  assert(countNodes(test3) == 1) { "Test case 3 failed" }
-
-  // Test Case 4: Empty tree
-  assert(countNodes(null) == 0) { "Test case 4 failed" }
-
-  println("All test cases passed!")
-}
