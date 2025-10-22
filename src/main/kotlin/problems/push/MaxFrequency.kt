@@ -1,82 +1,56 @@
 package problems.push
 
-import java.util.Arrays
-
 fun maxFrequency(nums: IntArray, k: Int, numOperations: Int): Int {
-  val n = nums.size
-  if (n == 0) return 0
-  Arrays.sort(nums)
+  val totalOps = numOperations
+  if (nums.isEmpty()) return 0
 
-  fun lowerBound(target: Int): Int {
-    var low = 0
-    var high = n
-    while (low < high) {
-      val mid = (low + high) ushr 1
-      if (nums[mid] >= target) {
-        high = mid
-      } else {
-        low = mid + 1
-      }
+  val baseFrequency = HashMap<Long, Int>()
+  for (value in nums) {
+    val key = value.toLong()
+    baseFrequency[key] = (baseFrequency[key] ?: 0) + 1
+  }
+  val uniqueValues = baseFrequency.keys.toMutableList().also { it.sort() }
+
+  val deltaMap = HashMap<Long, Int>()
+  val kLong = k.toLong()
+  for (value in nums) {
+    val v = value.toLong()
+    val left = v - kLong
+    val rightPlusOne = v + kLong + 1L
+    deltaMap[left] = (deltaMap[left] ?: 0) + 1
+    deltaMap[rightPlusOne] = (deltaMap[rightPlusOne] ?: 0) - 1
+  }
+  val events = deltaMap.entries.map { it.key to it.value }.sortedBy { it.first }
+
+  val coverAtValue = HashMap<Long, Int>(uniqueValues.size)
+  var runningCover = 0
+  var eventIndex = 0
+  var maxCover = 0
+
+  for (q in uniqueValues) {
+    while (eventIndex < events.size && events[eventIndex].first <= q) {
+      runningCover += events[eventIndex].second
+      if (runningCover > maxCover) maxCover = runningCover
+      eventIndex += 1
     }
-    return low
+    coverAtValue[q] = runningCover
   }
 
-  fun upperBound(target: Int): Int {
-    var low = 0
-    var high = n
-    while (low < high) {
-      val mid = (low + high) ushr 1
-      if (nums[mid] > target) {
-        high = mid
-      } else {
-        low = mid + 1
-      }
-    }
-    return low
+  while (eventIndex < events.size) {
+    runningCover += events[eventIndex].second
+    if (runningCover > maxCover) maxCover = runningCover
+    eventIndex += 1
   }
 
-  var maxWindowSizeAny = 1
-  var leftIndex = 0
-  var rightIndex = 0
-  while (rightIndex < n) {
-    while (nums[rightIndex] - nums[leftIndex] > 2 * k) {
-      leftIndex += 1
-    }
-    val windowSize = rightIndex - leftIndex + 1
-    if (windowSize > maxWindowSizeAny) {
-      maxWindowSizeAny = windowSize
-    }
-    rightIndex += 1
+  var best = 0
+  for (v in uniqueValues) {
+    val base = baseFrequency[v] ?: 0
+    val coverHere = coverAtValue[v] ?: 0
+    val candidate = minOf(coverHere, base + totalOps)
+    if (candidate > best) best = candidate
   }
 
-  var best = 1
-  var runStart = 0
-  while (runStart < n) {
-    var runEnd = runStart
-    val value = nums[runStart]
-    while (runEnd < n && nums[runEnd] == value) {
-      runEnd += 1
-    }
-    val runCount = runEnd - runStart
-
-    val leftBound = value - k
-    val rightBound = value + k
-    val leftPos = lowerBound(leftBound)
-    val rightPosExclusive = upperBound(rightBound)
-    val windowSizeAroundV = rightPosExclusive - leftPos
-
-    val candidateForV = minOf(windowSizeAroundV, runCount + numOperations)
-    if (candidateForV > best) {
-      best = candidateForV
-    }
-
-    runStart = runEnd
-  }
-
-  val candidateNoFreebies = minOf(maxWindowSizeAny, numOperations)
-  if (candidateNoFreebies > best) {
-    best = candidateNoFreebies
-  }
+  best = maxOf(best, minOf(maxCover, totalOps))
 
   return best
 }
