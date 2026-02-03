@@ -13,6 +13,6 @@ class MaximumRunningTimeOfNComputersTest {
     assertEquals(2, maxRunTime(2, intArrayOf(1, 1, 1, 1)))
         
     // Test case 3
-    assertEquals(4, maxRunTime(3, intArrayOf(3, 3, 3, 3, 3, 3)))
+    assertEquals(6, maxRunTime(3, intArrayOf(3, 3, 3, 3, 3, 3)))
   }
 }
