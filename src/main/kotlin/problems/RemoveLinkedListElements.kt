@@ -10,15 +10,15 @@ package problems
  * }
  */
 fun removeElements(head: ListNode?, `val`: Int): ListNode? {
-    val dummy = ListNode(0)
-    dummy.next = head
-    var prev: ListNode? = dummy
-    while (prev!!.next != null) {
-        if (prev.next!!.`val` == `val`) {
-            prev.next = prev.next!!.next
-        } else {
-            prev = prev.next
-        }
+  val dummy = ListNode(0)
+  dummy.next = head
+  var prev: ListNode? = dummy
+  while (prev!!.next != null) {
+    if (prev.next!!.`val` == `val`) {
+      prev.next = prev.next!!.next
+    } else {
+      prev = prev.next
     }
-    return dummy.next
+  }
+  return dummy.next
 }

@@ -8,27 +8,27 @@ package problems
  * Otherwise, it finds the smallest subarray with GCD 1 and calculates operations needed.
  */
 fun minOperationsToMakeGCDOne(nums: IntArray): Int {
-    val n = nums.size
-    var count1 = 0
-    for (num in nums) {
-        if (num == 1) count1++
-    }
-    if (count1 > 0) return n - count1
+  val n = nums.size
+  var count1 = 0
+  for (num in nums) {
+    if (num == 1) count1++
+  }
+  if (count1 > 0) return n - count1
     
-    var minOps = Int.MAX_VALUE
-    for (i in 0 until n) {
-        var g = nums[i]
-        for (j in i + 1 until n) {
-            g = gcd(g, nums[j])
-            if (g == 1) {
-                minOps = minOf(minOps, j - i + n - 1)
-                break
-            }
-        }
+  var minOps = Int.MAX_VALUE
+  for (i in 0 until n) {
+    var g = nums[i]
+    for (j in i + 1 until n) {
+      g = gcd(g, nums[j])
+      if (g == 1) {
+        minOps = minOf(minOps, j - i + n - 1)
+        break
+      }
     }
-    return if (minOps == Int.MAX_VALUE) -1 else minOps
+  }
+  return if (minOps == Int.MAX_VALUE) -1 else minOps
 }
 
 private fun gcd(a: Int, b: Int): Int {
-    return if (b == 0) a else gcd(b, a % b)
+  return if (b == 0) a else gcd(b, a % b)
 }

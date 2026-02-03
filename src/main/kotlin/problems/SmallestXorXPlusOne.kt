@@ -18,31 +18,31 @@ package problems
  * - For 15: 7 | 8 = 15, so return 7
  */
 class Solution {
-    fun smallestXorXPlusOne(nums: List<Int>): IntArray {
-        val result = IntArray(nums.size)
+  fun smallestXorXPlusOne(nums: List<Int>): IntArray {
+    val result = IntArray(nums.size)
 
-        for (index in nums.indices) {
-            val value = nums[index]
+    for (index in nums.indices) {
+      val value = nums[index]
 
-            // If the number is even, there's no solution since x | (x+1) is always odd
-            if (value % 2 == 0) {
-                result[index] = -1
-                continue
-            }
+      // If the number is even, there's no solution since x | (x+1) is always odd
+      if (value % 2 == 0) {
+        result[index] = -1
+        continue
+      }
 
-            // Count the number of trailing 1s in binary representation
-            var trailingOnes = 0
-            var temp = value
-            while ((temp and 1) == 1) {
-                trailingOnes++
-                temp = temp shr 1
-            }
+      // Count the number of trailing 1s in binary representation
+      var trailingOnes = 0
+      var temp = value
+      while ((temp and 1) == 1) {
+        trailingOnes++
+        temp = temp shr 1
+      }
 
-            // The result is value - 2^(trailingOnes - 1)
-            val k = trailingOnes - 1
-            result[index] = value - (1 shl k)
-        }
-
-        return result
+      // The result is value - 2^(trailingOnes - 1)
+      val k = trailingOnes - 1
+      result[index] = value - (1 shl k)
     }
+
+    return result
+  }
 }
