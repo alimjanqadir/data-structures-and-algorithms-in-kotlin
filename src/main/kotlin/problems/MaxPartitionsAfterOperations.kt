@@ -1,4 +1,4 @@
-package problems.push
+package problems
 
 fun maxPartitionsAfterOperations(s: String, k: Int): Int {
   val n = s.length

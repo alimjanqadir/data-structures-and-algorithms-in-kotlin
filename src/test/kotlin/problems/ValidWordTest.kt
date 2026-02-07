@@ -1,10 +1,8 @@
-import problems.ValidWordSolution
+import problems.isValidWord
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
 class ValidWordTest {
-  private val solution = ValidWordSolution()
-
   @Test
   fun testIsValidWord() {
     val testCases = listOf(
@@ -16,7 +14,7 @@ class ValidWordTest {
     )
 
     for ((input, expected) in testCases) {
-      assertEquals(expected, solution.isValid(input))
+      assertEquals(expected, isValidWord(input))
     }
   }
 }

@@ -1,4 +1,4 @@
-package problems.push
+package problems
 
 fun countValidSelections(nums: IntArray): Int {
   var validCount = 0

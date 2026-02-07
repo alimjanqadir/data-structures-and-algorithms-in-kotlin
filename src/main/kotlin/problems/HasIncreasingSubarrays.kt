@@ -1,4 +1,4 @@
-package problems.push
+package problems
 
 fun hasIncreasingSubarrays(nums: List<Int>, k: Int): Boolean {
   val length = nums.size

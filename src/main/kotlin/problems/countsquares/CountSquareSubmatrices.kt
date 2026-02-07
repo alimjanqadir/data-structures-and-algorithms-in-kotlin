@@ -1,7 +1,6 @@
-package problems.countsquares
+package problems
 
-class Solution {
-  fun countSquares(matrix: Array<IntArray>): Int {
+fun countSquares(matrix: Array<IntArray>): Int {
     if (matrix.isEmpty()) return 0
     val rowCount = matrix.size
     val columnCount = matrix[0].size
@@ -28,5 +27,4 @@ class Solution {
       }
     }
     return totalSquares
-  }
 }

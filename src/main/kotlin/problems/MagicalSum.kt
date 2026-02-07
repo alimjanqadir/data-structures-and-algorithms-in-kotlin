@@ -1,4 +1,4 @@
-package problems.push
+package problems
 
 private const val MOD = 1_000_000_007L
 

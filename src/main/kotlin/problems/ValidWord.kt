@@ -26,7 +26,3 @@ fun isValidWord(word: String): Boolean {
 
   return hasVowel && hasConsonant
 }
-
-class ValidWordSolution {
-  fun isValid(word: String): Boolean = problems.isValidWord(word)
-}

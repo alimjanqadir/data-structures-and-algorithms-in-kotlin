@@ -1,4 +1,4 @@
-package problems.push
+package problems
 
 fun maximumEnergy(energy: IntArray, k: Int): Int {
   val size = energy.size

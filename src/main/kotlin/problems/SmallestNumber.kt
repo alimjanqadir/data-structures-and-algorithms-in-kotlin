@@ -1,4 +1,4 @@
-package problems.push
+package problems
 
 fun smallestNumber(n: Int): Int {
   val bitLength = 32 - Integer.numberOfLeadingZeros(n)

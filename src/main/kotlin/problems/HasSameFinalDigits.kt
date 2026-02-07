@@ -1,4 +1,4 @@
-package problems.push
+package problems
 
 fun hasSameFinalDigits(s: String): Boolean {
   var digits = s.map { it - '0' }.toMutableList()

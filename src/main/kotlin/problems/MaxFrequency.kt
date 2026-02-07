@@ -1,4 +1,4 @@
-package problems.push
+package problems
 
 fun maxFrequency(nums: IntArray, k: Int, numOperations: Int): Int {
   val totalOps = numOperations

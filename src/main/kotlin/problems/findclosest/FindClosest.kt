@@ -1,7 +1,6 @@
-package problems.findclosest
+package problems
 
-class Solution {
-  fun findClosest(x: Int, y: Int, z: Int): Int {
+fun findClosest(x: Int, y: Int, z: Int): Int {
     val distancePerson1ToTarget = kotlin.math.abs(x - z)
     val distancePerson2ToTarget = kotlin.math.abs(y - z)
 
@@ -10,5 +9,4 @@ class Solution {
       distancePerson2ToTarget < distancePerson1ToTarget -> 2
       else -> 0
     }
-  }
 }

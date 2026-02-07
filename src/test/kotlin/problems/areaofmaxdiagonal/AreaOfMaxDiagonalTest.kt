@@ -1,10 +1,9 @@
-package problems.areaofmaxdiagonal
+package problems
 
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
 class AreaOfMaxDiagonalTest {
-  private val solution = Solution()
 
   @Test
   fun `example case`() {
@@ -12,7 +11,7 @@ class AreaOfMaxDiagonalTest {
       intArrayOf(9, 3),
       intArrayOf(8, 6)
     )
-    assertEquals(48, solution.areaOfMaxDiagonal(dimensions))
+    assertEquals(48, areaOfMaxDiagonal(dimensions))
   }
 
   @Test
@@ -21,6 +20,6 @@ class AreaOfMaxDiagonalTest {
       intArrayOf(3, 4),
       intArrayOf(4, 3)
     )
-    assertEquals(12, solution.areaOfMaxDiagonal(dimensions))
+    assertEquals(12, areaOfMaxDiagonal(dimensions))
   }
 }

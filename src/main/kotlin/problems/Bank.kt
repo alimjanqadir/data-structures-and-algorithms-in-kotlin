@@ -1,4 +1,4 @@
-package problems.push
+package problems
 
 class Bank(private val balances: LongArray) {
 

@@ -1,4 +1,4 @@
-package problems.push
+package problems
 
 fun nextBeautifulNumber(n: Int): Int {
   val candidates = generateAllBalancedUpToLen7()
