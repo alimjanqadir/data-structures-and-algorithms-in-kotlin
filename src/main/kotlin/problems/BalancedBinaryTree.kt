@@ -11,7 +11,7 @@ package problems
  * }
  */
 
-fun isBalanced(root: TreeNode?): Boolean {
+internal fun isBalanced(root: TreeNode?): Boolean {
   fun checkHeight(node: TreeNode?): Int {
     if (node == null) return 0
     
