@@ -4,7 +4,7 @@ package problems
  * Finds the starting index of the lexicographically largest suffix of [input].
  * The search begins at [startPos]. This is an O(n) algorithm.
  */
-private fun maxSuffixPos(input: String, startPos: Int = 0): Int {
+fun maxSuffixPos(input: String, startPos: Int = 0): Int {
   var bestIndex = startPos
   var candidateIndex = startPos + 1
   val length = input.length

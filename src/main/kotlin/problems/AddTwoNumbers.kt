@@ -5,7 +5,7 @@ package problems
  * Time Complexity: O(max(N, M)) where N and M are lengths of input lists
  * Space Complexity: O(max(N, M)) for the result list
  */
-private fun addTwoNumbers(l1: ListNode?, l2: ListNode?): ListNode? {
+fun addTwoNumbers(l1: ListNode?, l2: ListNode?): ListNode? {
   // Create a dummy head node for the result list
   val dummyHead = ListNode(0)
   var current = dummyHead
