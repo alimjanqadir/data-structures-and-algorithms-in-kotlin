@@ -1,46 +1,47 @@
 package problems
 
 fun gameOfLife(board: Array<IntArray>) {
-  val m = board.size
-  val n = board[0].size
+  val rowCount = board.size
+  val columnCount = board[0].size
 
-  val dirs = arrayOf(
+  // All 8 directions for neighbors
+  val neighborOffsets = arrayOf(
     intArrayOf(-1, -1), intArrayOf(-1, 0), intArrayOf(-1, 1),
-    intArrayOf(0, -1),               intArrayOf(0, 1),
-    intArrayOf(1, -1), intArrayOf(1, 0), intArrayOf(1, 1)
+    intArrayOf(0, -1),                  intArrayOf(0, 1),
+    intArrayOf(1, -1),  intArrayOf(1, 0),  intArrayOf(1, 1)
   )
 
-  for (i in 0 until m) {
-    for (j in 0 until n) {
-      var liveNeighbors = 0
-      // Count live neighbors using original state (least significant bit)
-      for (dir in dirs) {
-        val ni = i + dir[0]
-        val nj = j + dir[1]
-        if (ni in 0 until m && nj in 0 until n && (board[ni][nj] and 1) == 1) {
-          liveNeighbors++
+  // Step 1: Encode state transitions
+  for (rowIndex in 0 until rowCount) {
+    for (columnIndex in 0 until columnCount) {
+      var liveNeighborCount = 0
+
+      // Count live neighbors
+      for (offset in neighborOffsets) {
+        val neighborRow = rowIndex + offset[0]
+        val neighborColumn = columnIndex + offset[1]
+        if (neighborRow in 0 until rowCount && neighborColumn in 0 until columnCount) {
+          if (board[neighborRow][neighborColumn] == 1 || board[neighborRow][neighborColumn] == 2) {
+            liveNeighborCount++
+          }
         }
       }
 
-      // Encode new state in the second bit
-      if (board[i][j] == 1) {
-        if (liveNeighbors == 2 || liveNeighbors == 3) {
-          board[i][j] = 3 // 1 -> 1 (01 -> 11)
-        }
-        // else: 1 -> 0 (01 -> 01, no change needed)
-      } else { // board[i][j] == 0
-        if (liveNeighbors == 3) {
-          board[i][j] = 2 // 0 -> 1 (00 -> 10)
-        }
-        // else: 0 -> 0 (00 -> 00, no change needed)
+      // Apply Game of Life rules with encoded states
+      if (board[rowIndex][columnIndex] == 1 && (liveNeighborCount < 2 || liveNeighborCount > 3)) {
+        board[rowIndex][columnIndex] = 2 // alive → dead
+      }
+      if (board[rowIndex][columnIndex] == 0 && liveNeighborCount == 3) {
+        board[rowIndex][columnIndex] = -1 // dead → alive
       }
     }
   }
 
-  // Update the board to the new state
-  for (i in 0 until m) {
-    for (j in 0 until n) {
-      board[i][j] = board[i][j] shr 1 // Right shift to get the new state
+  // Step 2: Finalize the board
+  for (rowIndex in 0 until rowCount) {
+    for (columnIndex in 0 until columnCount) {
+      if (board[rowIndex][columnIndex] == 2) board[rowIndex][columnIndex] = 0
+      if (board[rowIndex][columnIndex] == -1) board[rowIndex][columnIndex] = 1
     }
   }
 }
