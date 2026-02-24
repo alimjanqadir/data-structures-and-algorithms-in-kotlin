@@ -14,31 +14,37 @@ package problems
  * @param root The root node of the binary tree
  * @return The total sum of all root-to-leaf numbers
  */
-private fun sumNumbers(root: TreeNode?): Int {
-  return dfs(root, 0)
+fun sumRootToLeaf(root: TreeNode?): Int {
+  return computePathSum(root, 0)
 }
 
-/**
- * Helper function that performs DFS traversal.
- *
- * @param node Current node being processed
- * @param currentSum Running sum from root to current node
- * @return Sum of all paths in the current subtree
- */
-private fun dfs(node: TreeNode?, currentSum: Int): Int {
-  // Base case: null node
-  if (node == null) return 0
+private fun computePathSum(
+  currentNode: TreeNode?,
+  accumulatedValue: Int
+): Int {
 
-  // Calculate the current number in the path
-  val newSum = currentSum * 10 + node.`val`
-
-  // If it's a leaf node, return the current number
-  if (node.left == null && node.right == null) {
-    return newSum
+  if (currentNode == null) {
+    return 0
   }
 
-  // Recurse on left and right children and return their sum
-  return dfs(node.left, newSum) + dfs(node.right, newSum)
+  val updatedValue =
+    accumulatedValue * 2 + currentNode.`val` 
+
+  val isLeaf =
+    currentNode.left == null &&
+      currentNode.right == null
+
+  if (isLeaf) {
+    return updatedValue
+  }
+
+  val leftSum =
+    computePathSum(currentNode.left, updatedValue)
+
+  val rightSum =
+    computePathSum(currentNode.right, updatedValue)
+
+  return leftSum + rightSum
 }
 
 /**
