@@ -1,10 +1,10 @@
 plugins {
-    id("org.jetbrains.kotlin.jvm") version "1.9.0"
-    id("io.gitlab.arturbosch.detekt") version "1.23.0" // Use the latest version
+    id("org.jetbrains.kotlin.jvm") version "2.3.0"
+    id("dev.detekt") version "2.0.0-alpha.2"
 }
 
 kotlin {
-    jvmToolchain(17)
+    jvmToolchain(25)
 }
 
 group = "org.example"
@@ -16,7 +16,7 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
-    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.23.0")
+    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.23.8")
 }
 
 tasks.test {
