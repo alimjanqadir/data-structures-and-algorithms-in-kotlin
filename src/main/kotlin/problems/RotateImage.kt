@@ -1,26 +1,28 @@
 package problems
 
-fun rotate(matrix: Array<IntArray>): Unit {
-  // Get the size of the matrix (n x n)
-  val len = matrix.size
+fun rotate(matrix: Array<IntArray>) {
+  val size = matrix.size
 
-  // Iterate through each layer of the matrix
-  for (row in 0 until len / 2) { // Loop through the rows up to the middle
-    for (col in 0 until (len + 1) / 2) { // Loop through the columns up to the middle
-      // Store the value of the current element (top-left)
-      val tmp = matrix[row][col]
+  // Step 1: transpose matrix across main diagonal
+  for (row in 0 until size) {
+    for (col in row until size) {
+      val temp = matrix[row][col]
+      matrix[row][col] = matrix[col][row]
+      matrix[col][row] = temp
+    }
+  }
 
-      // Move the bottom-left element to the top-left position
-      matrix[row][col] = matrix[len - col - 1][row]
+  // Step 2: reverse each row
+  for (row in 0 until size) {
+    var leftColumn = 0
+    var rightColumn = size - 1
 
-      // Move the bottom-right element to the bottom-left position
-      matrix[len - col - 1][row] = matrix[len - row - 1][len - col - 1]
-
-      // Move the top-right element to the bottom-right position
-      matrix[len - row - 1][len - col - 1] = matrix[col][len - row - 1]
-
-      // Assign the saved value (original top-left) to the top-right position
-      matrix[col][len - row - 1] = tmp
+    while (leftColumn < rightColumn) {
+      val temp = matrix[row][leftColumn]
+      matrix[row][leftColumn] = matrix[row][rightColumn]
+      matrix[row][rightColumn] = temp
+      leftColumn += 1
+      rightColumn -= 1
     }
   }
 }
@@ -64,7 +66,6 @@ private fun reverseRows(matrix: Array<IntArray>) {
     row.reverse()
   }
 }
-
 
 fun matrixEquals(a: Array<IntArray>, b: Array<IntArray>): Boolean {
   if (a.size != b.size) return false
