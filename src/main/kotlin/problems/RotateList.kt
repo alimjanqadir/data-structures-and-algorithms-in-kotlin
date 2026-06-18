@@ -1,61 +1,33 @@
 package problems
 
 fun rotateRight(head: ListNode?, k: Int): ListNode? {
-  // Handle edge cases
-  if (head?.next == null || k == 0) return head
+  if (head == null || head.next == null || k == 0) {
+    return head
+  }
 
-  // Step 1: Calculate length and find the last node
   var length = 1
   var tail = head
   while (tail?.next != null) {
-    length++
     tail = tail.next
+    length += 1
   }
 
-  // Step 2: Calculate effective rotation amount
-  val effectiveK = k % length
-  if (effectiveK == 0) return head
+  tail?.next = head
 
-  // Step 3: Find the new tail position (length - effectiveK - 1)
+  val effectiveRotation = k % length
+  if (effectiveRotation == 0) {
+    tail?.next = null
+    return head
+  }
+
+  val stepsToNewTail = length - effectiveRotation
   var newTail = head
-  repeat(length - effectiveK - 1) {
+  for (step in 1 until stepsToNewTail) {
     newTail = newTail?.next
   }
 
-  // Step 4: Perform rotation
   val newHead = newTail?.next
   newTail?.next = null
-  tail?.next = head
 
   return newHead
 }
-
-// Extension function to create linked list from list for testing
-private fun List<Int>.toLinkedList(): ListNode? {
-  if (isEmpty()) return null
-
-  val head = ListNode(first())
-  var current = head
-
-  for (value in drop(1)) {
-    current.next = ListNode(value)
-    current = current.next!!
-  }
-
-  return head
-}
-
-// Extension function to convert linked list to list for testing
-fun ListNode?.toList(): List<Int> {
-  val result = mutableListOf<Int>()
-  var current = this
-
-  while (current != null) {
-    result.add(current.`val`)
-    current = current.next
-  }
-
-  return result
-}
-
-// Test cases
